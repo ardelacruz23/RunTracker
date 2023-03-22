@@ -4,19 +4,19 @@
     <form action="POST">
         <div class="row mb-3">
             <label for="inputStartTime" class="col-sm-2 col-form-label addRunLabel">Start Time </label>
-            <div class="col-sm-3">
+            <div class="col-sm-3 startEndTime">
                 <input type="datetime-local" class="form-control" id="inputStartTime">        
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputEndTime" class="col-sm-2 col-form-label addRunLabel">End Time </label>
-            <div class="col-sm-3">
+            <div class="col-sm-3 startEndTime">
                 <input type="datetime-local" class="form-control" id="inputEndTime">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputDistance" class="col-sm-2 col-form-label addRunLabel">Total Miles </label>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="number" placeholder="1.0" step="0.01" min="0.01" max="100" />
             </div>
         </div>
@@ -24,8 +24,8 @@
             <label for="inputPhoto" class="col-sm-2 col-form-label addRunLabel">Run Photo</label>
                 <input class="form-control" type="file" id="inputPhoto">
         </div>
-        <button type="button" class="btn btn-secondary">Add Location</button>
-        <button type="button" class="btn btn-success">Create Run</button>
+        <button type="button" class="btn btn-secondary col-sm-3 addLocationBtn">Add Location</button>
+        <button type="button" class="btn btn-success col-sm-3">Create Run</button>
 
     </form>
     <style>
@@ -36,6 +36,12 @@
     #inputPhoto {
         width: 400px;
         display: inline;
+    }
+    .startEndTime {
+        width: 225px;
+    }
+    .addLocationBtn {
+        margin-left: 200px;
     }
     </style>
 }
