@@ -63,5 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Admin.sql" />
+    <Build Include="dbo\Tables\Run_1.sql" />
   </ItemGroup>
 </Project>
