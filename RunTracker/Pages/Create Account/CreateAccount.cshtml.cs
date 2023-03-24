@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RunTracker.Pages
 {
-    public class CreateAccountModel : PageModel
+    public class Index1Model : PageModel
     {
         public void OnGet()
         {

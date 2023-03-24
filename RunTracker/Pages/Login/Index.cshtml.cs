@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RunTracker.Pages
+namespace RunTracker.Pages.Login
 {
-    public class CreateAccountModel : PageModel
+    public class IndexModel : PageModel
     {
         public void OnGet()
         {
