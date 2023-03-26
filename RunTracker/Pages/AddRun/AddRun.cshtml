@@ -1,82 +1,107 @@
 ﻿@page
 @model RunTracker.Pages.Shared.IndexModel
 @{
-    <head>
-        <link href="https://fonts.cdnfonts.com/css/liberation-mono" rel="stylesheet">
-        <style>
-            import url('https://fonts.cdnfonts.com/css/liberation-mono');
-        </style>
-    </head>
-                
-    <form action="POST">
+}
+<head>
+    <link href="https://fonts.cdnfonts.com/css/liberation-mono" rel="stylesheet">
+    <style>
+        import url('https://fonts.cdnfonts.com/css/liberation-mono');
+    </style>
+</head>
 
-        <div class="row mb-3 addRunLabel">
+<body>
+    <form method="POST">
+
+        <div class="row mb-3">
             <input type="text" class="col-lg-3 col-form-label-lg" id="runName" placeholder="Enter name for Run">
         </div>
 
         <div class="row mb-3 addRunLabel">
             <label for="startTime" class="col-lg-3 col-form-label-lg labelMargin">Start Time </label>
-                <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="startTime">            
+            <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="startTime">
         </div>
 
         <div class="row mb-3 addRunLabel">
             <label for="endTime" class="col-lg-3 col-form-label-lg labelMargin">End Time </label>
-                <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="endTime">
+            <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="endTime">
         </div>
 
         <div class="row mb-3 addRunLabel">
-            <label for="distance" class="col-lg-3 col-form-label-lg labelMargin">Distance</label>            
-                <input type="number" class="form-control-lg col-lg-3 distance" value="1.0" step="0.1" min="0.1" max="100" id="distance"/>            
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="miles" value="option1">
-            <label class="form-check-label" for="miles">(Miles)</label>
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="kilometers" value="option2">
-            <label class="form-check-label" for="kilometers">(Kilometers)</label>
+            <label for="distance" class="col-lg-3 col-form-label-lg labelMargin">Distance</label>
+            <input type="number" class="form-control-lg col-lg-1 distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" />
+            <input class="form-check-inline radioBtns col-sm-1" style="margin-left:25px;" type="radio" name="inlineRadioOptions" id="miles" value="option1">
+            <label class="form-check-inline col-sm-1 radioLabels" style="width:75px;"for="miles">(Miles)</label>
+            <input class="form-check-inline radioBtns col-sm-1" type="radio" name="inlineRadioOptions" id="kilometers" value="option2">
+            <label class="form-check-inline col-sm-1 radioLabels" for="kilometers">(Kilometers)</label>
         </div>
 
         <div class="row mb-3 addRunLabel">
-            <label for="runPhoto" class="col-lg-3 col-form-label-lg">Photo</label>
-                <input class="form-control-md col-md-8" style="vertical-align:auto" type="file" id="runPhoto">
+            <label for="runPhoto" class="col-lg-3 col-form-label-lg labelMargin">Photo</label>
+            <input class="form-control-md col-md-8" style="vertical-align:auto; padding-left:0" type="file" id="runPhoto">
         </div>
 
-        <div class="mb-3 addRunLabel" style="text-align:center">
+        <div class="row mb-3 addRunLabel" style="width:50%">
             <button type="button" class="btn btn-secondary col-lg-2 formBtn">Add Location</button>
             <button type="button" class="btn btn-success col-lg-2 formBtn">Create Run</button>
         </div>
 
-
     </form>
 
-    <style>
-    #runName{
-        width:500px;
+</body>
+
+<style>
+    #startTime, #endTime {
+        width: 320px;
+    }
+    #runName {
+        margin: auto;
+        width: 500px;
         text-align: center;
         font-family: 'Liberation Mono', sans-serif;
-
     }
+
+    .radioBtns {
+        display: inline-block;
+        width: 10px;
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+    .radioLabels {
+        font-size: 12px;
+        margin-right: 0px;
+        width: 100px;
+    }
+
     .row {
         display: flex;
         align-items: center;
+        align-content: center;
     }
+
     .addRunLabel {
         font-family: 'Liberation Mono', sans-serif;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-        width: 40%;      
+        margin: auto;
+        width: 500px;
     }
+
     .labelMargin {
+        width: 150px;
         margin-right: 10px;
     }
+
     .startEndTime {
         width: 300px;
     }
+
     .distance {
         width: 100px;
     }
+
     .formBtn {
-        text-align: center;
         width: 200px;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 3px;
     }
-    </style>
-}
+</style>
