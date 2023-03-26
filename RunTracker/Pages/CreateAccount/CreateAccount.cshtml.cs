@@ -2,22 +2,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using RunTracker.Models;
-using System;
 
-namespace RunTracker.Pages.Shared
+namespace RunTracker.Pages
 {
-    public class AddRunModel : PageModel
+    public class CreateAccountModel : PageModel
     {
-        [BindProperty]
-        public Models.Run NewRun { get; set; } = new Models.Run();
+        // [BindProperty] DO WE NEED THIS ???????
+        public Models.User NewUser = new User();
         public void OnGet()
         {
-            NewRun.StartTime = DateTime.Now;
-            NewRun.StartTime = NewRun.StartTime.AddTicks(-(NewRun.StartTime.Ticks % TimeSpan.TicksPerSecond));
-            NewRun.EndTime = DateTime.Now;
-            NewRun.EndTime = NewRun.EndTime.AddTicks(-(NewRun.EndTime.Ticks % TimeSpan.TicksPerSecond));
+
         }
-        public void OnPost()
+    
+        public void OnPost() 
         {
             /*
              * 1. Create a connection to the database using the connection string stored in appsettings.json
@@ -30,20 +27,19 @@ namespace RunTracker.Pages.Shared
              * 6. Close the connection
              *
              */
-
-            using(SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
+            using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
             {
                 // 2. Paramaterized Query
-                string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, PhotoURL) " +
-                    "VALUES (@runName, @startTime, @endTime, @distance, @photoURL)";
+                string sql = "INSERT INTO User(Email, FirstName, LastName, Salt, PasswordHash) " +
+                    "VALUES (@email, @firstName, @lastName, @salt, @passwordHash)";
 
                 // 3. 
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@runName", NewRun.RunName);
-                cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
-                cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
-                cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
-                cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
+                cmd.Parameters.AddWithValue("@email", NewUser.Email);
+                cmd.Parameters.AddWithValue("@firstName", NewUser.FirstName);
+                cmd.Parameters.AddWithValue("@lastName", NewUser.LastName);
+                cmd.Parameters.AddWithValue("@salt", NewUser.Salt);
+                cmd.Parameters.AddWithValue("@passwordHash", NewUser.PasswordHash);
 
                 // 4. 
                 conn.Open();
@@ -54,12 +50,9 @@ namespace RunTracker.Pages.Shared
                 // USE ExecuteReader for getting data from database, SELECT command
 
                 // 6. connection will close automatically once Using{} block is exited
+
             }// USING
 
         }
-
-    }//CLASS AddRunModel
-
-
+    }
 }
-
