@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
 namespace RunTracker.Models
@@ -9,6 +10,8 @@ namespace RunTracker.Models
         public int UserId { get; set; }
         [Required]
         public string RunName { get; set; }
+        [Required]
+        [DisplayName("Run Date")]
         public DateOnly RunDate { get; set; }
         [Required]
         public DateTime StartTime { get; set; }
@@ -16,6 +19,7 @@ namespace RunTracker.Models
         public DateTime EndTime { get; set; }
         [Required]
         public decimal Distance { get; set; }
+        // [Required] --> Set this to Required AFTER implementing the function to compute and store run Pace
         public TimeOnly Pace { get; set; }
         [AllowNull]
         public string PhotoURL { get; set; }

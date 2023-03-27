@@ -26,7 +26,8 @@
         <form class="createForm">
             <div class="row mb-3">
                 <label for="name" class="col-sm-2 nameLabel">Name</label>
-                <input type="text" class="form-control nameInput" id="name-input">
+                <input type="text" class="form-control nameInput" id="name-input" asp-for="@Model.NewUser.FirstName">
+                <span class="text-danger" asp-validation-for="NewUser.FirstName"></span>
             </div>
             <div class="row mb-3">
                 <label for="email" class="col-sm-2 emailLabel">Email</label>
@@ -41,7 +42,7 @@
                 <input type="text" class="form-control rePasswordInput" id="re-password-input">
             </div>
             <div class="d-grid col-4 mx-auto">
-                <button class="btn-create" type="button">Create Account</button>
+                <button class="btn-create" type="submit">Create Account</button>
             </div>
         </form>
     </div>

@@ -14,16 +14,23 @@
 
         <div class="row mb-3">
             <input type="text" class="col-lg-3 col-form-label-lg" id="runName" asp-for="@Model.NewRun.RunName" placeholder="Enter name for Run">
+            <span class="text-danger" asp-validation-for="NewRun.RunName"></span>
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="runDate" class="col-lg-3 col-form-label-lg labelMargin" asp-for="@Model.NewRun.RunDate"></label>
+            <input type="date" class="form-control-lg col-lg-5 startEndTime" id="runDate" asp-for="@Model.NewRun.RunDate">
+            <span class="text-danger" asp-validation-for="NewRun.RunDate"></span>
         </div>
 
         <div class="row mb-3 addRunLabel">
             <label for="startTime" class="col-lg-3 col-form-label-lg labelMargin">Start Time </label>
-            <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="startTime" asp-for="NewRun.StartTime">
+            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="08:00:00" step="1" id="startTime" asp-for="NewRun.StartTime">
         </div>
 
         <div class="row mb-3 addRunLabel">
             <label for="endTime" class="col-lg-3 col-form-label-lg labelMargin">End Time </label>
-            <input type="datetime-local" class="form-control-lg col-lg-5 startEndTime" id="endTime" asp-for="NewRun.EndTime">
+            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="09:00:00" step="1" id="endTime" asp-for="NewRun.EndTime">
         </div>
 
         <div class="row mb-3 addRunLabel">
