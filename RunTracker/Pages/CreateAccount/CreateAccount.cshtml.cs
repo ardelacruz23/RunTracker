@@ -5,10 +5,10 @@ using RunTracker.Models;
 
 namespace RunTracker.Pages
 {
-    public class CreateAccountModel : PageModel
+    public class Index1Model : PageModel
     {
-        // [BindProperty] DO WE NEED THIS ???????
-        public Models.User NewUser = new User();
+        [BindProperty] 
+        public Models.User NewUser { get; set; } = new Models.User();
         public void OnGet()
         {
 
