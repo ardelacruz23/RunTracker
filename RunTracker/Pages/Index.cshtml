@@ -4,27 +4,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-5">RunTracker</h1>
-    <!-- In order to add static files to razor page (css,js,jquery, images), the files must be
-        located in the wwwroot folder!!!
-    -->
-</div>
 <body>
-
+	<section class="container">
+		<div id="col-2"></div>
+			
+		<div id="col-1">
+			<h1>Login</h1>
+			<div class="row-mb-3">
+				<label for="email" class="col-sm-2 emailLabel">Email</label>
+				<input type="text" class="form-control emailInput" id="email-input">
+			</div>
+			<div class="row-mb-3">
+				<label for="password" class="col-sm-2 passwordLabel">Password</label>
+				<input type="text" class="form-control passwordInput" id="password-input">
+			</div>
+			<button class="btn-login" type="submit">Login</button>
+		</div>
+	</section>
 </body>
 
 <style>
-    .display-5 {
-        color: white;
-        font-size: 100px;
-        font-weight: bold;
-        font-family: 'Verdana';
-    }
-    body {
-        background: url('images/main-theme.png');
-        background-position: center;
-        background-size: cover;
-        height: 500px;
-    }
+	.container {
+		display: flex;
+		margin-right: 300px;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	#col-1 {
+		background-color: lightgrey;
+		flex: 1;
+		margin: 20px;
+		padding: 15px;
+		margin-top: 25%;
+	}
+
+	.row-mb-3 {
+		flex: 1;
+		font-size: 20px;
+		margin: 20px;
+	}
+
+	#col-2 {
+		flex: 1;
+		margin: 20px;
+		padding: 15px;
+		margin-top: 25%;
+		background: url('images/login.jpg');
+		background-size: cover;
+		min-height: 100vh;
+	}
+
+	#col-1, #col-2 {
+	}
+
+	.btn-login {
+		border-radius: 8px;
+		border: none;
+		font-size: 20px;
+		padding: 10px;
+		background-color: antiquewhite;
+		width: 30%;
+	}
 </style>

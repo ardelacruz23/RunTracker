@@ -3,11 +3,38 @@
 @{
 }
 
+<script type="text/javascript">
+    function validateInput() {
+        var isValid = true;
+        var name = document.getElementById("name-input");
+        var email = document.getElementById("email-input");
+        var password = document.getElementById("password-input");
+        var rePassword = document.getElementById("re-password-input");
+
+        if (name.value == "") {
+            isValid = false;
+            document.getElementById("name-error").innerHTML = "This field is required.";
+        }
+
+        if (email.value == "") {
+            isValid = false;
+            document.getElementById("email-error").innerHTML = "This field is required.";
+        }
+
+        if (password.value == "") {
+            isValid = false;
+            document.getElementById("password-error").innerHTML = "This field is required.";
+        }
+
+        if (rePassword.value == "") {
+            isValid = false;
+            document.getElementById("re-password-error").innerHTML = "This field is required.";
+        }
+        return isValid;
+    }
+</script>
+
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lalezar&family=Michroma&family=Monoton&family=Montserrat&family=PT+Serif&family=Poppins:wght@300&family=Quicksand&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-    
     <style>
         body {
             background: rgb(68,107,107);
@@ -27,21 +54,25 @@
             <div class="row mb-3">
                 <label for="name" class="col-sm-2 nameLabel">Name</label>
                 <input type="text" class="form-control nameInput" id="name-input">
+                <span class="text-danger" id="name-error" asp-validation-for="NewUser.FirstName"></span>
             </div>
             <div class="row mb-3">
                 <label for="email" class="col-sm-2 emailLabel">Email</label>
                 <input type="text" class="form-control emailInput" id="email-input">
+                <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
                 <label for="password" class="col-sm-2 passwordLabel">Password</label>
                 <input type="text" class="form-control passwordInput" id="password-input">
+                <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="row mb-3">
                 <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
                 <input type="text" class="form-control rePasswordInput" id="re-password-input">
+                <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="d-grid col-4 mx-auto">
-                <button class="btn-create" type="button">Create Account</button>
+                <button class="btn-create" type="submit" onclick="return validateInput()">Create Account</button>
             </div>
         </form>
     </div>
@@ -57,6 +88,10 @@
         border-color: #F2F4F4;
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+
+    .text-danger {
+        position: center;
     }
 
     .nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {

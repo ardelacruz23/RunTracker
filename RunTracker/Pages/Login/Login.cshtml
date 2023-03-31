@@ -3,16 +3,9 @@
 @{
 }
 
-<head>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lalezar&family=Michroma&family=Monoton&family=Montserrat&family=PT+Serif&family=Poppins:wght@300&family=Quicksand&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-</head>
-
 <body>
 	<section class="container">
 		<div id="col-1">
-			<h1>This is half of a page</h1>
 		</div>
 		<div id="col-2">
 			<h1>Login</h1>
@@ -37,7 +30,7 @@
 	}
 
 	#col-1 {
-		background: pink;
+		background-color: lightgrey;
 		flex: 1;
 		margin: 20px;
 		padding: 15px;
@@ -51,11 +44,18 @@
 	}
 
 	#col-2 {
-		background-color: orange;
 		flex: 1;
 		margin: 20px;
 		padding: 15px;
 		margin-top: 25%;
+		background: url('images/login.jpg');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		min-height: 100vh;
+	}
+
+	#col-1, #col-2 {
 	}
 
 	.btn-login {
