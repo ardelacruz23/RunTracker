@@ -10,7 +10,7 @@ namespace RunTracker.Models
         public int UserId { get; set; }
         [Required]
         public string RunName { get; set; }
-        [Required]
+        [Required (ErrorMessage ="Please Enter a valid Date")]
         [DisplayName("Run Date")]
         public DateOnly RunDate { get; set; }
         [Required]
