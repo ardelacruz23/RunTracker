@@ -9,46 +9,61 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lalezar&family=Michroma&family=Monoton&family=Montserrat&family=PT+Serif&family=Poppins:wght@300&family=Quicksand&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<div class="container">
-	<section class="left-side"></section>
-
-	<section class="right-side">
-		<h1>Login</h1>
-		<img src="~/Images/login.jpg">
-		<form>
-			<label for="email">Email</label>
-			<input type="email" id="email" name="email">
-			<label for="password">Password</label><br>
-			<input type="password" id="password" name="password">
-			<div class="rememberpass">
-				<input type="checkbox" id="remember" name="remember">
-				<label for="remember">Remember me</label>
-			</div><br>
-			<input type="submit" value="Login"><br>
-			<a href="google.com">Forgot Password?</a>
-		</form>
+<body>
+	<section class="container">
+		<div id="col-1">
+			<h1>This is half of a page</h1>
+		</div>
+		<div id="col-2">
+			<h1>Login</h1>
+			<div class="row-mb-3">
+				<label for="email" class="col-sm-2 emailLabel">Email</label>
+				<input type="text" class="form-control emailInput" id="email-input">
+			</div>
+			<div class="row-mb-3">
+				<label for="password" class="col-sm-2 passwordLabel">Password</label>
+				<input type="text" class="form-control passwordInput" id="password-input">
+			</div>
+			<button class="btn-login" type="submit">Login</button>
+		</div>
 	</section>
-</div>
+</body>
 
 <style>
-	.right-side {
-		background-color: white;
-		margin: auto;
-	}
-
-	.left-side {
-		width: 100%;
-		min-height: 100vh;
-		background: url('"C:\Users\Geli\source\repos\RunTracker\RunTracker\wwwroot\Images\login.jpg"');
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-
-	h1 {
-		font-size: 4rem;
+	.container {
+		display: flex;
+		margin-right: 300px;
 		font-family: 'Raleway', sans-serif;
-		text-align: center;
-		padding: 2rem;
+	}
+
+	#col-1 {
+		background: pink;
+		flex: 1;
+		margin: 20px;
+		padding: 15px;
+		margin-top: 25%;
+	}
+
+	.row-mb-3 {
+		flex: 1;
+		font-size: 20px;
+		margin: 20px;
+	}
+
+	#col-2 {
+		background-color: orange;
+		flex: 1;
+		margin: 20px;
+		padding: 15px;
+		margin-top: 25%;
+	}
+
+	.btn-login {
+		border-radius: 8px;
+		border: none;
+		font-size: 20px;
+		padding: 10px;
+		background-color: antiquewhite;
+		width: 30%;
 	}
 </style>

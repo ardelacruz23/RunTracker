@@ -1,4 +1,6 @@
-﻿namespace RunTracker
+﻿
+
+namespace RunTracker
 {
 	public class Startup
 	{
