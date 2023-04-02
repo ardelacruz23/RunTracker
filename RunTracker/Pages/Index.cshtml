@@ -4,12 +4,103 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="homePage text-center">
-    <h1 class="homePage">RunTracker</h1>
-    <!-- In order to add static files to razor page (css,js,jquery, images), the files must be
-        located in the wwwroot folder!!!
-    -->
-</div>
-<body >
+<div class="container">
+	<section class="left-side"></section>
+	<section class="right-side">
 
-</body>
+		<h1>Login</h1>
+		<form>
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email">
+			<label for="password">Password</label><br>
+			<input type="password" id="password" name="password">
+			<div class="rememberpass">
+				<input type="checkbox" id="remember" name="remember">
+				<label for="remember">Remember Me</label>
+			</div><br>
+			<input type="submit" value="Login"><br>
+			<a href="google.com">Forgot Password?</a>
+		</form>
+	</section>
+</div>
+
+<style>
+	*, *:before, *:after {
+		margin: 0;
+		box-sizing: border-box;
+		padding: 0;
+		font-family: 'Raleway', sans-serif;
+	}
+	
+	.container {
+		display: flex;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	.right-side {
+		background-color: white;
+		margin: auto;
+	}
+
+	.left-side {
+		width: 1000%;
+		min-height: 89vh;
+		background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #afe4ff 32px), repeating-linear-gradient(#7ab8ff, #7ab8ff);
+		background-color: #afe4ff;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	h1 {
+		font-size: 4rem;
+		text-align: left;
+		padding: 2rem;
+	}
+
+	/* form stuff */
+
+	form {
+		padding: 2rem;
+	}
+
+	a {
+		text-decoration: none;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		transition-duration: 0.4s;
+	}
+
+	input[type=email], [type=password] {
+		padding: 0.7rem;
+		width: 130%;
+		margin: 10px 0;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		border-bottom: 1px solid black;
+		font-size: 15px;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	label {
+		font-size: 1.5rem;
+	}
+
+	input[type=submit] {
+		width: 90%;
+		background-color: black;
+		color: white;
+		font-size: 20px;
+		border: 2px solid black;
+		font-weight: bold;
+		margin-top: 2rem;
+		transition-duration: 0.4s;
+		display: flex;
+		justify-content: center;
+		padding: 0.5rem;
+		margin: auto;
+		margin-top: 2rem;
+	}
+</style>
