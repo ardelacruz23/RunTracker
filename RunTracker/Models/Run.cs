@@ -14,13 +14,13 @@ namespace RunTracker.Models
         [DisplayName("Run Date")]
         public DateOnly RunDate { get; set; }
         [Required]
-        public DateTime StartTime { get; set; }
+        public TimeOnly StartTime { get; set; }
         [Required]
-        public DateTime EndTime { get; set; }
+        public TimeOnly EndTime { get; set; }
         [Required]
         public decimal Distance { get; set; }
         // [Required] --> Set this to Required AFTER implementing the function to compute and store run Pace
-        public TimeOnly Pace { get; set; }
+        public decimal Pace { get; set; }
         [AllowNull]
         public string PhotoURL { get; set; }
         [AllowNull]

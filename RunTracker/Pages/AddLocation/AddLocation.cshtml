@@ -2,3 +2,34 @@
 @model RunTracker.Pages.AddLocation.AddLocationModel
 @{
 }
+
+<form method="POST" class="addRunForm">
+
+    <div class="row mb-4">
+        <input type="text" class="col-lg-8 col-form-label-lg" id="locationName" asp-for="@Model.NewRun.LocationName" placeholder="Enter the location of the run">
+        <span class="text-danger" asp-validation-for="NewRun.LocationName" id="locationNameError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="city" class="col-lg-3 col-form-label-lg addRunLabel" asp-for="@Model.NewRun.City"></label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="city" asp-for="@Model.NewRun.City">
+        <span class="text-danger" asp-validation-for="NewRun.City" id="cityError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="state" class="col-lg-3 col-form-label-lg addRunLabel" asp-for="@Model.NewRun.State"></label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="state" asp-for="@Model.NewRun.State">
+        <span class="text-danger" asp-validation-for="NewRun.State" id="stateError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="country" class="col-lg-3 col-form-label-lg addRunLabel" asp-for="@Model.NewRun.Country"></label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="country" asp-for="@Model.NewRun.Country">
+        <span class="text-danger" asp-validation-for="NewRun.Country" id="countryError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <button type="submit" class="btn btn-success formBtn" onclick="return validateInput()">Add Location</button>
+    </div>
+
+</form>

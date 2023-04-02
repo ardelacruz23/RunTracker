@@ -2,10 +2,6 @@
 @model RunTracker.Pages.Shared.AddRunModel
 @{
 }
-<body>
-
-</body>
-
 
 <script type="text/javascript">
     function validateInput(){
@@ -35,23 +31,23 @@
 
         <div class="row mb-3 addRunRow">
             <label for="runDate" class="col-lg-3 col-form-label-lg addRunLabel" asp-for="@Model.NewRun.RunDate"></label>
-            <input type="date" class="form-control-lg col-lg-5 startEndTime" id="runDate" asp-for="@Model.NewRun.RunDate">
+            <input type="date" class="form-control-lg col-lg-5 startEndTime"  id="runDate" asp-for="@Model.NewRun.RunDate">
             <span class="text-danger" asp-validation-for="NewRun.RunDate" id="runDateError"></span>
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="startTime" class="col-lg-3 col-form-label-lg addRunLabel">Start Time </label>
-            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="08:00:00" step="1" id="startTime" asp-for="NewRun.StartTime">
+            <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="startTime" asp-for="@Model.NewRun.StartTime">
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="endTime" class="col-lg-3 col-form-label-lg addRunLabel">End Time </label>
-            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="09:00:00" step="1" id="endTime" asp-for="NewRun.EndTime">
+            <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="endTime" asp-for="@Model.NewRun.EndTime">
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="distance" class="col-lg-3 col-form-label-lg addRunLabel">Distance</label>
-            <input type="number" class="form-control-lg distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" asp-for="NewRun.Distance" />
+            <input type="number" class="form-control-lg distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" asp-for="@Model.NewRun.Distance" />
             <input class="form-check-inline radioBtns" type="radio" name="inlineRadioOptions" id="miles" value="option1">
             <label class="form-check-inline radioLabels" for="miles">(Miles)</label>
             <input class="form-check-inline radioBtns" type="radio" name="inlineRadioOptions" id="kilometers" value="option2">
@@ -60,7 +56,7 @@
 
         <div class="row mb-3 addRunRow">
             <label for="runPhoto" class="col-lg-3 col-form-label-lg addRunLabel">Run Photo</label>
-            <input class="form-control-md col-md-8" style="vertical-align:auto; padding-left:0" type="text" placeholder="Enter the URL for your photo"id="runPhoto" asp-for="NewRun.PhotoURL">
+            <input class="form-control-md col-md-8" style="vertical-align:auto; padding-left:0" type="text" placeholder="Enter the URL for your photo"id="runPhoto" asp-for="@Model.NewRun.PhotoURL">
         </div>
 
         <div class="row mb-3 addRunRow">

@@ -35,7 +35,7 @@ body {
     width: 320px;
 }
 
-#runName {
+#runName, #locationName {
     margin: auto;
     margin-top: 20px;
     width: 80%;

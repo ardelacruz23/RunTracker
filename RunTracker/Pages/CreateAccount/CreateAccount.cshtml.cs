@@ -32,14 +32,13 @@ namespace RunTracker.Pages
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
                 {
                     // 2. Paramaterized Query
-                    string sql = "INSERT INTO User(Email, FirstName, LastName, Salt, PasswordHash) " +
-                        "VALUES (@email, @firstName, @lastName, @salt, @passwordHash)";
+                    string sql = "INSERT INTO User(Email, FirstName, Salt, PasswordHash) " +
+                        "VALUES ('@email', '@firstName', '@salt', '@passwordHash')";
 
                     // 3. 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@email", NewUser.Email);
                     cmd.Parameters.AddWithValue("@firstName", NewUser.FirstName);
-                    cmd.Parameters.AddWithValue("@lastName", NewUser.LastName);
                     cmd.Parameters.AddWithValue("@salt", NewUser.Salt);
                     cmd.Parameters.AddWithValue("@passwordHash", NewUser.PasswordHash);
 
@@ -52,7 +51,6 @@ namespace RunTracker.Pages
                     // USE ExecuteReader for getting data from database, SELECT command
 
                     // 6. connection will close automatically once Using{} block is exited
-
                 }// USING
                 return RedirectToPage("Index");
             }// IF

@@ -16,6 +16,14 @@ namespace RunTracker.Pages.Shared
         }
         public IActionResult OnPost()
         {
+
+            //SqlConnection conn = new SqlConnection();
+
+            //string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, Pace, PhotoURL) " +
+            //              "VALUES ('" + NewRun.RunName + "', '" + NewRun.RunDate + "', '"+ NewRun.StartTime + "', '" + NewRun.EndTime +
+            //              "', '" + NewRun.Distance + "', '" +  NewRun.Pace +"', '" + NewRun.PhotoURL +"')";
+
+        
             if (ModelState.IsValid)
             {
                 /*
@@ -30,11 +38,16 @@ namespace RunTracker.Pages.Shared
                  *
                  */
 
+                // Use the StartTime, EndTime and Distance to calculate the pace in mins per mile
+                decimal calcPace;
+                decimal calcTime = (decimal)(NewRun.EndTime - NewRun.StartTime).TotalMinutes;
+                calcPace = (calcTime / NewRun.Distance);
+
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
                 {
                     // 2. Paramaterized Query
-                    string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, PhotoURL) " +
-                        "VALUES (@runName, @runDate,  @startTime, @endTime, @distance, @photoURL)";
+                    string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, Pace, PhotoURL) " +
+                        "VALUES (@runName, @runDate,  @startTime, @endTime, @distance, @pace, @photoURL)";
 
                     // 3. 
                     SqlCommand cmd = new SqlCommand(sql, conn);
@@ -42,6 +55,7 @@ namespace RunTracker.Pages.Shared
                     cmd.Parameters.AddWithValue("@runDate", NewRun.RunDate);
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
+                    cmd.Parameters.AddWithValue("@pace", calcPace);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
 
@@ -56,13 +70,14 @@ namespace RunTracker.Pages.Shared
                     // 6. connection will close automatically once Using{} block is exited
                 }// USING
                 return RedirectToPage("Index");
-            }
+}
             else
             {
                 return Page();
             }
 
-        }
+        }// onPost()
+
 
     }//CLASS AddRunModel
 
