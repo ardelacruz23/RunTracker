@@ -9,9 +9,3 @@
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([UserID] ASC)
 );
 
-
-
-
-
-
-

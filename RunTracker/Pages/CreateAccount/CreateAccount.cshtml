@@ -31,11 +31,13 @@
             </div>
             <div class="row mb-3">
                 <label for="email" class="col-sm-2 emailLabel">Email</label>
-                <input type="text" class="form-control emailInput" id="email-input">
+                <input type="text" class="form-control emailInput" id="email-input" asp-for="@Model.NewUser.Email">
+                <span class="text-danger" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
                 <label for="password" class="col-sm-2 passwordLabel">Password</label>
-                <input type="text" class="form-control passwordInput" id="password-input">
+                <input type="text" class="form-control passwordInput" id="password-input" asp-for="@Model.NewUser.PasswordHash">
+                <span class="text-danger" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="row mb-3">
                 <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>

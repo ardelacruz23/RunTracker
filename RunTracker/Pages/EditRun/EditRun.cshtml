@@ -12,7 +12,7 @@
             isValid = false;
             document.getElementById("runNameError").innerHTML = "This field is required.";
         }
-        if (runDate.value == "mm/dd/yyyy") {
+        if (runDate.value == "") {
             isValid = false;
             document.getElementById("runDateError").innerHTML = "This field is required.";
         }
@@ -20,14 +20,6 @@
     }
 </script>
 
-<head>
-    <link href="https://fonts.cdnfonts.com/css/liberation-mono" rel="stylesheet">
-    <style>
-        import url('https://fonts.cdnfonts.com/css/liberation-mono');
-    </style>
-</head>
-
-<body>
     <form method="POST">
 
         <div class="row mb-3">
@@ -75,7 +67,6 @@
 
     </form>
 
-</body>
 
 <style>
     #startTime, #endTime {

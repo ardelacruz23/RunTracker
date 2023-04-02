@@ -15,7 +15,3 @@
     CONSTRAINT [PK_Run] PRIMARY KEY CLUSTERED ([RunId] ASC)
 );
 
-
-
-
-
