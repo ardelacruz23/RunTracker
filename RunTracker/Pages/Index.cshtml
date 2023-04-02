@@ -14,10 +14,6 @@
 			<input type="email" id="email" name="email">
 			<label for="password">Password</label><br>
 			<input type="password" id="password" name="password">
-			<div class="rememberpass">
-				<input type="checkbox" id="remember" name="remember">
-				<label for="remember">Remember Me</label>
-			</div><br>
 			<input type="submit" value="Login"><br>
 			<a href="google.com">Forgot Password?</a>
 		</form>
@@ -34,6 +30,7 @@
 	
 	.container {
 		display: flex;
+		max-width: 100%;
 		font-family: 'Raleway', sans-serif;
 	}
 
@@ -43,10 +40,9 @@
 	}
 
 	.left-side {
-		width: 1000%;
+		min-width: 330%;
 		min-height: 89vh;
-		background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #afe4ff 32px), repeating-linear-gradient(#7ab8ff, #7ab8ff);
-		background-color: #afe4ff;
+		background: url('Images/login.jpg');
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -74,8 +70,8 @@
 
 	input[type=email], [type=password] {
 		padding: 0.7rem;
-		width: 130%;
-		margin: 10px 0;
+		width: 220%;
+		margin: 15px 0;
 		border: 0;
 		outline: 0;
 		background: transparent;
