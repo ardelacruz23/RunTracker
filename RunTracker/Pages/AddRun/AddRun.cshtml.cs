@@ -69,7 +69,7 @@ namespace RunTracker.Pages.Shared
 
                     // 6. connection will close automatically once Using{} block is exited
                 }// USING
-                return RedirectToPage("Index");
+                return RedirectToPage("../Index.cshtml");
 }
             else
             {

@@ -38,11 +38,13 @@
         <div class="row mb-3 addRunRow">
             <label for="startTime" class="col-lg-3 col-form-label-lg addRunLabel">Start Time </label>
             <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="startTime" asp-for="@Model.NewRun.StartTime">
+            <span class="text-danger" asp-validation-for="NewRun.StartTime" id="startTimeError"></span>
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="endTime" class="col-lg-3 col-form-label-lg addRunLabel">End Time </label>
             <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="endTime" asp-for="@Model.NewRun.EndTime">
+            <span class="text-danger" asp-validation-for="NewRun.EndTime" id="endTimeError"></span>
         </div>
 
         <div class="row mb-3 addRunRow">
