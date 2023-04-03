@@ -1,0 +1,129 @@
+﻿@page
+@model RunTracker.Pages.Shared.AddRunModel
+@{
+}
+<script type="text/javascript">
+    function validateInput() {
+        var isValid = true;
+        var runName = document.getElementById("runName");
+        var runDate = document.getElementById("runDate");
+
+        if (runName.value == "") {
+            isValid = false;
+            document.getElementById("runNameError").innerHTML = "This field is required.";
+        }
+        if (runDate.value == "") {
+            isValid = false;
+            document.getElementById("runDateError").innerHTML = "This field is required.";
+        }
+        return isValid;
+    }
+</script>
+
+    <form method="POST">
+
+        <div class="row mb-3">
+            <input type="text" class="col-lg-3 col-form-label-lg" id="runName" asp-for="@Model.NewRun.RunName" placeholder="Enter name for Run">
+            <span class="text-danger" asp-validation-for="NewRun.RunName" id="runNameError"></span>
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="runDate" class="col-lg-3 col-form-label-lg labelMargin" asp-for="@Model.NewRun.RunDate"></label>
+            <input type="date" class="form-control-lg col-lg-5 startEndTime" id="runDate" asp-for="@Model.NewRun.RunDate">
+            <span class="text-danger" asp-validation-for="NewRun.RunDate" id="runDateError"></span>
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="startTime" class="col-lg-3 col-form-label-lg labelMargin">Start Time </label>
+            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="08:00:00" step="1" id="startTime" asp-for="NewRun.StartTime">
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="endTime" class="col-lg-3 col-form-label-lg labelMargin">End Time </label>
+            <input type="time" class="form-control-lg col-lg-5 startEndTime" value="09:00:00" step="1" id="endTime" asp-for="NewRun.EndTime">
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="distance" class="col-lg-3 col-form-label-lg labelMargin">Distance</label>
+            <input type="number" class="form-control-lg col-lg-1 distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" asp-for="NewRun.Distance" />
+            <input class="form-check-inline radioBtns col-sm-1" style="margin-left:25px;" type="radio" name="inlineRadioOptions" id="miles" value="option1">
+            <label class="form-check-inline col-sm-1 radioLabels" style="width:75px;" for="miles">(Miles)</label>
+            <input class="form-check-inline radioBtns col-sm-1" type="radio" name="inlineRadioOptions" id="kilometers" value="option2">
+            <label class="form-check-inline col-sm-1 radioLabels" for="kilometers">(Kilometers)</label>
+        </div>
+
+        <div class="row mb-3 addRunLabel">
+            <label for="runPhoto" class="col-lg-3 col-form-label-lg labelMargin">Photo</label>
+            <input class="form-control-md col-md-8" style="vertical-align:auto; padding-left:0" type="text" id="runPhoto" asp-for="NewRun.PhotoURL">
+        </div>
+
+        <div class="row mb-3 addRunLabel" style="width:50%">
+            <button type="button" class="btn btn-secondary col-lg-2 formBtn">Add Location</button>
+            <button type="submit" class="btn btn-success col-lg-2 formBtn" onclick="return validateInput()">Create Run</button>
+        </div>
+
+        <div class="col-sm-12">
+        </div>
+
+    </form>
+
+
+<style>
+    #startTime, #endTime {
+        width: 320px;
+    }
+
+    #runName {
+        margin: auto;
+        width: 500px;
+        text-align: center;
+        font-family: 'Liberation Mono', sans-serif;
+    }
+
+    .radioBtns {
+        display: inline-block;
+        width: 10px;
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+    .radioLabels {
+        font-size: 12px;
+        margin-right: 0px;
+        width: 100px;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+
+    .addRunLabel {
+        font-family: 'Liberation Mono', sans-serif;
+        margin: auto;
+        width: 500px;
+    }
+
+    .labelMargin {
+        width: 150px;
+        margin-right: 10px;
+    }
+
+    .startEndTime {
+        width: 300px;
+        font-size: 18px;
+    }
+
+    .distance {
+        width: 100px;
+    }
+
+    .formBtn {
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 3px;
+    }
+</style>
+

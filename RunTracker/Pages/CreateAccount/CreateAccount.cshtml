@@ -1,100 +1,131 @@
 ﻿@page
-@model RunTracker.Pages.Index1Model
+@model RunTracker.Pages.CreateAccountModel
 @{
 }
 
+<script type="text/javascript">
+    function validateInput(){
+        var isValid = true;
+        var firstName = document.getElementById("fname-input");
+        var lastName = documentgetElementById("lname-input")
+        var email = document.getElementById("email-input");
+        var password = document.getElementById("password-input");
+        var rePassword = document.getElementById("re-password-input");
+
+        if (firstName.value == "") {
+            isValid = false;
+            document.getElementById("fname-error").innerHTML = "This field is required.";
+        }
+
+        if (lastName.value == "") {
+            isValid = false;
+            document.getElementById("lname-error").innerHTML = "This field is required.";
+        }
+
+        if (email.value == "") {
+            isValid = false;
+            document.getElementById("email-error").innerHTML = "This field is required.";
+        }
+
+        if (password.value == "") {
+            isValid = false;
+            document.getElementById("password-error").innerHTML = "This field is required.";
+        }
+
+        if (rePassword.value == "") {
+            isValid = false;
+            document.getElementById("re-password-error").innerHTML = "This field is required.";
+        }
+        return isValid;
+    }
+</script>
+
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lalezar&family=Michroma&family=Monoton&family=Montserrat&family=PT+Serif&family=Poppins:wght@300&family=Quicksand&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-    
     <style>
         body {
-            background: rgb(68,107,107);
-            background: linear-gradient(143deg, rgba(68,107,107,1) 0%, rgba(132,139,187,1) 100%);
+            background: rgb(89,149,191);
+            background: linear-gradient(153deg, rgba(89,149,191,1) 0%, rgba(51,89,168,1) 95%);
         }
     </style>
 </head>
 
-<body>
-    <h3 class="welcome-text1">Welcome to</h3>
-    <h1 class="welcome-text2">RunTracker</h1>
-    <div class="bordered">
-        <h1 class="createAccount"><strong>Create Account</strong></h1>
-        <h4 class="misc">It's quick and easy!</h4>
 
-        <form class="createForm">
+    <h1 class="createAccount"><strong>Create Account</strong></h1>
+    <h4 class="misc">It's quick and easy!</h4>
+
+    <div class="bordered">
+        <form method="POST" class="createForm">
             <div class="row mb-3">
-                <label for="name" class="col-sm-2 nameLabel">Name</label>
-                <input type="text" class="form-control nameInput" id="name-input">
+                <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
+                <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
+                <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
+            </div>
+            <div class="row mb-3">
+                <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
+                <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
+                <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
             </div>
             <div class="row mb-3">
                 <label for="email" class="col-sm-2 emailLabel">Email</label>
-                <input type="text" class="form-control emailInput" id="email-input">
+                <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
+                <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
                 <label for="password" class="col-sm-2 passwordLabel">Password</label>
-                <input type="text" class="form-control passwordInput" id="password-input">
+                <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
+                <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="row mb-3">
                 <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
-                <input type="text" class="form-control rePasswordInput" id="re-password-input">
+                <input type="text" class="form-control rePasswordInput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
+                <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="d-grid col-4 mx-auto">
-                <button class="btn-create" type="button">Create Account</button>
+                <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
             </div>
         </form>
     </div>
-</body>
+
 
 <style>
     .createForm input[type="text"] {
         box-sizing: border-box;
-        margin: 15px;
-        width: 535px;
+        margin: 30px;
+        width: 500px;
         border-radius: 8px;
+        font-size: 18px;
+        padding: 0.8rem;
+        font-family: 'Raleway', sans-serif;
+        text-align: left;
         background-color: #F4F6F6;
         border-color: #F2F4F4;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
-    .nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
-        font-size: 25px;
+    .fnameLabel, .lnameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
+        font-size: 20px;
         text-align: right;
-        margin-left: 240px;
         width: 150px;
-        font-family: 'Raleway', sans-serif;
-    }
-
-    .welcome-text1 {
-        color: #1C2833;
         font-weight: bold;
         font-family: 'Raleway', sans-serif;
-        font-size: 50px;
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .welcome-text2 {
-        color: black;
-        font-size: 75px;
-        font-family: 'Monoton', cursive;
-        text-align: center;
-    }
-
-    .createAccount, .misc {
-        font-size: 60px;
-        text-align: center;
+        display: inline-block;
     }
 
     .createAccount, .misc {
         font-family: 'Raleway', sans-serif;
+        font-size: 80px;
+    }
+
+    .createAccount {
+        margin-top: 80px;
+        color: white;
     }
 
     .misc {
         margin-bottom: 50px;
-        color: #5D6D7E;
+        color: #E8E8E8;
+        font-size: 60px;
     }
 
     .row {
@@ -102,21 +133,23 @@
         align-items: center;
     }
 
-    .btn-create {
+    .btn {
         font-size: 25px;
         font-family: 'Raleway', sans-serif;
         border-radius: 8px;
         border: none;
+        font-weight: bold;
+        padding: 0.5rem;
         align-content: center;
-        background-color: #7A96B4;
-        color: white;
+        background: rgb(113,156,186);
+        background: linear-gradient(153deg, rgba(113,156,186,1) 0%, rgba(108,148,185,1) 95%);
     }
 
     .bordered {
         border-radius: 8px;
         border: none;
         background-color: #E5E7E9;
-        margin-top: 60px;
-        padding: 30px;
+        margin-top: 40px;
+        padding: 45px;
     }
 </style>
