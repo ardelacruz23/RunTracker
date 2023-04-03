@@ -46,7 +46,7 @@
             <div class="date-time-formate">
                 <div class="day-text-formate">TODAY</div>
                 <div class="date-time-value">
-                    <div class="time-formate">7:42 p.m</div>
+                    <div class="time-formate">7:42 PM</div>
                     <div class="date-formate">2 April 2023</div>
                 </div>
             </div>
@@ -97,6 +97,7 @@
         right: 0%;
         width: 100%;
         height: 100%;
+        font-size: 25px;
     }
 
     .calendar {
@@ -113,7 +114,7 @@
     }
 
     .calendar-header {
-        background: #9796f0;
+        background: #9DE1E8;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -215,7 +216,7 @@
     #year:hover {
         cursor: pointer;
         transform: scale(1.2);
-        transition: all 0.2 ease-in-out;
+        transition: all 0.2s ease-in-out;
     }
 
     .calendar-days div span {
@@ -224,14 +225,14 @@
 
     .calendar-days div:hover {
         transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-        background-color: #fbc7d4;
+        background-color: #48B4BF;
         border-radius: 20%;
         color: var(--dark-text);
     }
 
     .calendar-days div.current-date {
         color: var(--dark-text);
-        background-color: var(--light-btn);
+        background-color: #48B4BF;
         border-radius: 20%;
     }
 
@@ -239,7 +240,7 @@
         position: relative;
         left: 0;
         top: -50px;
-        background-color: #ebebeb;
+        background-color: #48B4BF;
         color: var(--light-text);
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -261,7 +262,7 @@
     }
 
     .month-list > div > div:hover {
-        background-color: var(--light-btn);
+        background-color: #48B4BF;
         color: var(--dark-text);
         transform: scale(0.9);
         transition: all 0.2s ease-in-out;
@@ -297,7 +298,7 @@
         font-family: Microsoft JhengHei UI;
         font-size: 1.4rem;
         padding-right: 5%;
-        border-right: 3px solid #9796f0;
+        border-right: 3px solid #9DE1E8;
         position: absolute;
         left: -1rem;
     }
