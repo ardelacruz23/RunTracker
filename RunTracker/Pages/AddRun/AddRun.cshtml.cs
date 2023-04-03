@@ -15,15 +15,7 @@ namespace RunTracker.Pages.Shared
         
         }
         public IActionResult OnPost()
-        {
-
-            //SqlConnection conn = new SqlConnection();
-
-            //string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, Pace, PhotoURL) " +
-            //              "VALUES ('" + NewRun.RunName + "', '" + NewRun.RunDate + "', '"+ NewRun.StartTime + "', '" + NewRun.EndTime +
-            //              "', '" + NewRun.Distance + "', '" +  NewRun.Pace +"', '" + NewRun.PhotoURL +"')";
-
-        
+        {        
             if (ModelState.IsValid)
             {
                 /*
@@ -46,18 +38,23 @@ namespace RunTracker.Pages.Shared
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
                 {
                     // 2. Paramaterized Query
-                    string sql = "INSERT INTO Run(RunName, StartTime, EndTime, Distance, Pace, PhotoURL) " +
-                        "VALUES (@runName, @runDate,  @startTime, @endTime, @distance, @pace, @photoURL)";
+                    string sql = "INSERT INTO [Run] (RunName, UserId, StartTime, EndTime, Distance, Pace, PhotoURL) " +
+                        "VALUES (@runName, @userId, @runDate,  @startTime, @endTime, @distance, @pace, @photoURL)";
 
                     // 3. 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@runName", NewRun.RunName);
+                    cmd.Parameters.AddWithValue("@userId", "1");
                     cmd.Parameters.AddWithValue("@runDate", NewRun.RunDate);
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
                     cmd.Parameters.AddWithValue("@pace", calcPace);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
+                    //cmd.Parameters.AddWithValue("@locationName", NewRun.LocationName);
+                    //cmd.Parameters.AddWithValue("@city", NewRun.City);
+                    //cmd.Parameters.AddWithValue("@state", NewRun.State);
+                    //cmd.Parameters.AddWithValue("@country", NewRun.Country);
 
                     // 4. 
                     conn.Open();
@@ -69,7 +66,7 @@ namespace RunTracker.Pages.Shared
 
                     // 6. connection will close automatically once Using{} block is exited
                 }// USING
-                return RedirectToPage("../Index.cshtml");
+                return RedirectToPage("Index");
 }
             else
             {
