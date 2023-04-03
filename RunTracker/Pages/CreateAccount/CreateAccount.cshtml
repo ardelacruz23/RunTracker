@@ -43,8 +43,8 @@
 <head>
     <style>
         body {
-            background: rgb(114,171,203);
-            background: linear-gradient(143deg, rgba(114,171,203,1) 0%, rgba(97,110,180,1) 100%);
+            background: rgb(159,172,241);
+            background: linear-gradient(153deg, rgba(159,172,241,1) 0%, rgba(70,115,199,1) 95%);
         }
     </style>
 </head>
@@ -81,7 +81,7 @@
                 <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="d-grid col-4 mx-auto">
-                <button class="btn-create" type="submit" onclick="return validateInput()">Create Account</button>
+                <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
             </div>
         </form>
     </div>
@@ -94,6 +94,7 @@
         width: 500px;
         border-radius: 8px;
         font-size: 20px;
+        font-weight: bold;
         font-family: 'Raleway', sans-serif;
         text-align: left;
         background-color: #F4F6F6;
@@ -103,27 +104,11 @@
     }
 
     .fnameLabel, .lnameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
-        font-size: 25px;
+        font-size: 20px;
         text-align: right;
         width: 150px;
         font-family: 'Raleway', sans-serif;
         display: inline-block;
-    }
-
-    .welcome-text1 {
-        color: black;
-        font-weight: bold;
-        font-family: 'Raleway', sans-serif;
-        font-size: 70px;
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .welcome-text2 {
-        color: black;
-        font-size: 80px;
-        font-family: 'Monoton', cursive;
-        text-align: center;
     }
 
     .createAccount, .misc {
@@ -136,11 +121,12 @@
 
     .createAccount {
         margin-top: 80px;
+        color: white;
     }
 
     .misc {
         margin-bottom: 50px;
-        color: #4E5A63;
+        color: gray;
     }
 
     .row {
@@ -148,14 +134,14 @@
         align-items: center;
     }
 
-    .btn-create {
+    .btn {
         font-size: 25px;
         font-family: 'Raleway', sans-serif;
         border-radius: 8px;
         border: none;
+        font-weight: bold;
+        padding: 0.5rem;
         align-content: center;
-        background-color: #7A96B4;
-        color: white;
     }
 
     .bordered {
