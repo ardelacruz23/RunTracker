@@ -12,7 +12,7 @@ namespace RunTracker.Pages.Shared
         public Models.Run NewRun { get; set; } = new Models.Run();
         public void OnGet()
         {
-            NewRun.StartTime = DateTime.Now;
+            NewRun.StartTime = DateTime.Now.ToLong;
             NewRun.StartTime = NewRun.StartTime.AddTicks(-(NewRun.StartTime.Ticks % TimeSpan.TicksPerSecond));
             NewRun.EndTime = DateTime.Now;
             NewRun.EndTime = NewRun.EndTime.AddTicks(-(NewRun.EndTime.Ticks % TimeSpan.TicksPerSecond));
