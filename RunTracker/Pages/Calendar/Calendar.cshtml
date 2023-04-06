@@ -3,37 +3,117 @@
 @{
 }
 
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		var calendarEl = document.getElementById('calendar');
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			initialView: 'dayGridMonth'
-		});
-		calendar.render();
-	});
-
-</script>
-
 <head>
-	<title>RunTracker Calendar</title>
-	<link rel="stylesheet" href="fullcalendar.min.css">
-	<script src="jquery.min.js"></script>
-	<script src="moment.min.js"></script>
-	<script src="fullcalendar.min.js"></script>
-	<link rel="stylesheet" href="calendar.css">
-	<script src="calendar.js"></script>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js'></script>
+    <script>
 
-	<link href="/lib/fullcalendar/main.css" rel="stylesheet" />
-	<script src="/lib/fullcalendar/main.js"></script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth'
+            });
+            calendar.render();
+        });
+
+    </script>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
-	<div id="calendar"></div>
+    <div class="bordered-1">
+        <div id='calendar'>
+            <div class="fc"></div>
+        </div>
+    </div>
 </body>
+
 
 <style>
 	#calendar {
 		max-width: 800px;
 		margin: 0 auto;
+        font-family: Raleway, sans-serif;
 	}
+
+    <!-- main container of the calendar -->
+    .fc {
+        
+    }
+
+    <!-- header area of the calendar, which contains the 
+    navigation buttons, title, etc -->
+    .fc-header {
+    }
+
+    <!-- toolbar area of the header, which contains the 
+    navigation buttons -->
+    .fc-toolbar {
+
+    }
+
+    <!-- center area of the header that contains the title 
+    of the calendar -->
+    .fc-center {
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+    <!-- navigation button in the header, such as the 
+    prev and next buttons--individual buttons are 
+    .fc-prev-button, .fc-next-button, .fc-today-button -->
+    .fc-button {
+
+    }
+
+    <!-- header row of the day grid, which displays the day names -->
+    .fc-day-header {
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    <!-- day cell in the day grid -->
+    .fc-day {
+        font-size: 22px;
+    }
+
+    <!-- background area of the calendar, which is used 
+    to display non-event-related content such as time slots -->
+    .fc-bg {
+
+    }
+
+    <!-- event element in the calendar -->
+    .fc-event {
+
+    }
+
+    <!-- title of an event element -->
+    .fc-event-title {
+
+    }
+
+    <!-- time of an event element -->
+    .fc-event-time {
+
+    }
+
+    <!-- container element that wraps around all the events 
+    for a given day -->
+    .fc-event-container {
+
+    }
+
+    .bordered-1 {
+        border-radius: 8px;
+        border: none;
+        background-color: #E5E7E9;
+        margin-top: 40px;
+        padding: 45px;
+    }
 </style>
