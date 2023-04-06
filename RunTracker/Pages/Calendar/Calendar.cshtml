@@ -39,12 +39,23 @@
 		max-width: 800px;
 		margin: 0 auto;
         font-family: Raleway, sans-serif;
+        text-decoration: none;
 	}
 
-    <!-- main container of the calendar -->
     .fc {
         
     }
+
+    .fc-day-top {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .fc-day {
+        font-size: 20px;
+    }
+
+    <!-- anything below may not be accurate class name -->
 
     <!-- header area of the calendar, which contains the 
     navigation buttons, title, etc -->
@@ -60,8 +71,6 @@
     <!-- center area of the header that contains the title 
     of the calendar -->
     .fc-center {
-        font-size: 45px;
-        font-weight: bold;
     }
 
     <!-- navigation button in the header, such as the 
@@ -72,15 +81,7 @@
     }
 
     <!-- header row of the day grid, which displays the day names -->
-    .fc-day-header {
-        font-weight: bold;
-        font-size: 22px;
-    }
-
-    <!-- day cell in the day grid -->
-    .fc-day {
-        font-size: 22px;
-    }
+    
 
     <!-- background area of the calendar, which is used 
     to display non-event-related content such as time slots -->
@@ -112,7 +113,7 @@
     .bordered-1 {
         border-radius: 8px;
         border: none;
-        background-color: #E5E7E9;
+        background-color: ghostwhite;
         margin-top: 40px;
         padding: 45px;
     }
