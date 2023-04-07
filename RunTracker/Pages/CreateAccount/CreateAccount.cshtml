@@ -49,43 +49,41 @@
     </style>
 </head>
 
-<body>
-    <h1 class="createAccount"><strong>Create Account</strong></h1>
-    <h4 class="misc">It's quick and easy!</h4>
+<h1 class="createAccount"><strong>Create Account</strong></h1>
+<h4 class="misc">It's quick and easy!</h4>
 
-    <div class="bordered">
-        <form class="createForm">
-            <div class="row mb-3">
-                <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
-                <input type="text" class="form-control fnameInput" id="fname-input"><br>
-                <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
-                <input type="text" class="form-control lnameInput" id="lname-input"><br>
-                <span class="text-danger" id="name-error" asp-validation-for="NewUser.LastName"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="email" class="col-sm-2 emailLabel">Email</label>
-                <input type="text" class="form-control emailInput" id="email-input"><br>
-                <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="password" class="col-sm-2 passwordLabel">Password</label>
-                <input type="text" class="form-control passwordInput" id="password-input"><br>
-                <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
-                <input type="text" class="form-control rePasswordInput" id="re-password-input"><br>
-                <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>
-            <div class="d-grid col-4 mx-auto">
-                <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
-            </div>
-        </form>
-    </div>
-</body>
+<div class="bordered">
+    <form class="createForm">
+        <div class="row mb-3">
+            <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
+            <input type="text" class="form-control fnameInput" id="fname-input"><br>
+            <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
+            <input type="text" class="form-control lnameInput" id="lname-input"><br>
+            <span class="text-danger" id="name-error" asp-validation-for="NewUser.LastName"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="email" class="col-sm-2 emailLabel">Email</label>
+            <input type="text" class="form-control emailInput" id="email-input"><br>
+            <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="password" class="col-sm-2 passwordLabel">Password</label>
+            <input type="text" class="form-control passwordInput" id="password-input"><br>
+            <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
+            <input type="text" class="form-control rePasswordInput" id="re-password-input"><br>
+            <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
+        </div>
+        <div class="d-grid col-4 mx-auto">
+            <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
+        </div>
+    </form>
+</div>
 
 <style>
     .createForm input[type="text"] {
