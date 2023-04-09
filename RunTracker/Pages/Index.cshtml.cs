@@ -14,7 +14,6 @@ namespace RunTracker.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
