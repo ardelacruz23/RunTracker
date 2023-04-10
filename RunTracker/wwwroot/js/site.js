@@ -61,5 +61,4 @@ rightBtn.addEventListener("click", () => {
     monthYear.textContent = `${months[currMonth]} ${currYear}`;
     renderCalendar();
 });
-
 /* end of calendar js */
