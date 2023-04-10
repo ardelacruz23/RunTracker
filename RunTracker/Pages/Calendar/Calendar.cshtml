@@ -4,31 +4,28 @@
     ViewData["Title"] = "Calendar";
 }
 
-<td>
-    <span></span>
-</td>
+<div class="calendar-container">
+    <div class="month-year">
+        <div>
+            <button type="submit" class="btn btn-secondary left-btn">&larr;</button>
+            <span>April 2023</span>
+            <button type="submit" class="btn btn-secondary right-btn">&rarr;</button>
+        </div>
+    </div>
 
-<div class="month-year">
-    <h1>April 2023</h1>
+    <table class="days-of-week">
+        <tr>
+            <td>Sunday</td>
+            <td>Monday</td>
+            <td>Tuesday</td>
+            <td>Wednesday</td>
+            <td>Thursday</td>
+            <td>Friday</td>
+            <td>Saturday</td>
+        </tr>
+    </table>
 
-    <button type="button" class="btn btn-secondary">5</button>
-    <button type="button" class="btn btn-secondary">6</button>
-</div>
-
-<table border="1" class="days-of-week">
-    <tr>
-        <td>Sunday</td>
-        <td>Monday</td>
-        <td>Tuesday</td>
-        <td>Wednesday</td>
-        <td>Thursday</td>
-        <td>Friday</td>
-        <td>Saturday</td>
-    </tr>
-</table>
-
-<div class="calendar">
-    <table border="1">
+    <table class="calendar">
         <tr>
             <td>1</td>
             <td>2</td>
@@ -76,40 +73,3 @@
         </tr>
     </table>
 </div>
-
-<style>
-    td {
-        width: 10rem;
-        height: 7rem;
-        overflow: hidden;
-        word-wrap: break-word;
-        text-align: left;
-        border-width: thin;
-    }
-
-    td {
-        position: relative;
-        padding: 10px;
-        background-color: ghostwhite;
-    }
-
-    .calendar, .days-of-week {
-        font-family: 'Raleway', sans-serif;
-        align-items: center;
-    }
-
-    .month-year {
-        font-family: 'Raleway', sans-serif;
-        font-weight: bold;
-        text-align: left;
-    }
-
-    td span {
-        position: absolute;
-    }
-
-
-    table {
-        align-content: center center;
-    }
-</style>
