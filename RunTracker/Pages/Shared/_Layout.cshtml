@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RunTracker</title>
+
+    <link href="https://fonts.cdnfonts.com/css/liberation-mono" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RunTracker.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Lalezar&family=Michroma&family=Monoton&family=Montserrat&family=PT+Serif&family=Poppins:wght@300&family=Quicksand&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -27,6 +30,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Calendar/Calendar">Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DayView/DayView">Day View</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/AddRun/AddRun">Add Run</a>

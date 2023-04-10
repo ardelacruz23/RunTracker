@@ -36,32 +36,34 @@
             isValid = false;
             document.getElementById("countryError").innerHTML = "This field is reqired.";
         }
+               
         return isValid;
     }
+
 </script>
 
 <form method="POST" class="addRunForm">
 
     <div class="row mb-4">
-        <input type="text" class="col-lg-8 col-form-label-lg" id="locationName" placeholder="Enter the location of the run">
+        <input type="text" class="col-lg-8 col-form-label-lg" id="locationName" @*asp-for="NewRun.LocationName"*@ placeholder="Enter the location of the run">
         <span class="text-danger" id="locationError"></span>
     </div>
 
     <div class="row mb-4 addRunRow">
         <label for="city" class="col-lg-3 col-form-label-lg addRunLabel">City</label>
-        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="city">
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="city" @*asp-for="NewRun.City"*@>
         <span class="text-danger" id="cityError"></span>
     </div>
 
     <div class="row mb-4 addRunRow">
         <label for="state" class="col-lg-3 col-form-label-lg addRunLabel">State</label>
-        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="state">
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="state" @*asp-for="NewRun.State"*@>
         <span class="text-danger" id="stateError"></span>
     </div>
 
     <div class="row mb-4 addRunRow">
         <label for="country" class="col-lg-3 col-form-label-lg addRunLabel">Country</label>
-        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="country">
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="country" @*asp-for="NewRun.Country"*@>
         <span class="text-danger" id="countryError"></span>
     </div>
 
