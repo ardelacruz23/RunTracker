@@ -50,41 +50,41 @@
 </head>
 
 
-    <h1 class="createAccount"><strong>Create Account</strong></h1>
-    <h4 class="misc">It's quick and easy!</h4>
+<h1 class="createAccount"><strong>Create Account</strong></h1>
+<h4 class="misc">It's quick and easy!</h4>
 
-    <div class="bordered">
-        <form method="POST" class="createForm">
-            <div class="row mb-3">
-                <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
-                <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
-                <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
-                <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
-                <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="email" class="col-sm-2 emailLabel">Email</label>
-                <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
-                <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="password" class="col-sm-2 passwordLabel">Password</label>
-                <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
-                <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>
-            <div class="row mb-3">
-                <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
-                <input type="text" class="form-control rePasswordInput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
-                <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>
-            <div class="d-grid col-4 mx-auto">
-                <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
-            </div>
-        </form>
-    </div>
+<div class="bordered">
+    <form method="POST" class="createForm">
+        <div class="row mb-3">
+            <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
+            <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
+            <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
+            <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
+            <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="email" class="col-sm-2 emailLabel">Email</label>
+            <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
+            <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="password" class="col-sm-2 passwordLabel">Password</label>
+            <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
+            <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
+        </div>
+        <div class="row mb-3">
+            <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
+            <input type="text" class="form-control rePasswordInput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
+            <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
+        </div>
+        <div class="d-grid col-4 mx-auto">
+            <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
+        </div>
+    </form>
+</div>
 
 
 <style>
@@ -99,15 +99,15 @@
         text-align: left;
         background-color: #F4F6F6;
         border-color: #F2F4F4;
-        margin-top: 7px;
-        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .fnameLabel, .lnameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
         font-size: 20px;
         text-align: right;
         width: 150px;
-      font-weight: bold;
+        font-weight: bold;
         font-family: 'Raleway', sans-serif;
         display: inline-block;
     }
@@ -122,7 +122,7 @@
     }
 
     .misc {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         color: #E8E8E8;
         font-size: 60px;
     }
@@ -147,7 +147,8 @@
     .bordered {
         border-radius: 8px;
         border: none;
+        margin-top: 20px;
         background-color: #E5E7E9;
-        padding: 40px;
+        padding: 45px;
     }
 </style>
