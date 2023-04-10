@@ -218,6 +218,69 @@ body {
     margin-top: 30px;
 }
 
+.bordered {
+    border-radius: 8px;
+    width: 60%;
+    border: none;
+    background-color: #E5E7E9;
+    padding: 10px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+/* calendar styling */
+td {
+    width: 10rem;
+    height: 7rem;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: left;
+    border-width: thin;
+    position: relative;
+    padding: 7px;
+}
+
+.calendar td {
+    vertical-align: top;
+    text-align: left;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.left-btn {
+    margin-left: 10px;
+}
+
+.days-of-week {
+    background-color: lightgrey;
+    margin: 0 auto;
+}
+
+.calendar, .days-of-week {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.calendar {
+    margin: 0 auto;
+}
+
+.month-year {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    display: flex;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+/* end of calendar styling */
 .welcome-text2 {
     color: black;
     font-size: 75px;
