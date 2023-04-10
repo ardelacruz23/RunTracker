@@ -4,10 +4,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-	<section class="left-side"></section>
-	<section class="right-side">
+<div class="split left loginImage">
+@*	<div class="d-none d-md-flex col-md-4 col-lg-6 loginImage">
+        <img src="/Images/login.jpg" alt="Login-Background">
+	</div>*@
+</div>
 
+<div class="split right">
+	<div class="centered">
 		<h1>Login</h1>
 		<form>
 			<label for="email">Email</label>
@@ -15,37 +19,39 @@
 			<label for="password">Password</label><br>
 			<input type="password" id="password" name="password">
 			<input type="submit" value="Login"><br>
-			<a href="google.com">Forgot Password?</a>
+			<a href="/CreateAccount/CreateAccount"><strong><u>Create an Account</u></strong></a>
 		</form>
-	</section>
+	</div>
 </div>
 
 <style>
-	*, *:before, *:after {
-		margin: 0;
-		box-sizing: border-box;
-		padding: 0;
-		font-family: 'Raleway', sans-serif;
-	}
-	
-	.container {
-		display: flex;
-		max-width: 100%;
-		font-family: 'Raleway', sans-serif;
+
+	.split {
+		height: 100%;
+		width: 50%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		overflow-x: hidden;
+		padding-top: 20px;
 	}
 
-	.right-side {
+	/* Control the left side */
+	.left {
+		left: 0;
+		background-color: #111;
+	}
+
+	/* Control the right side */
+	.right {
+		right: 0;
 		background-color: white;
-		margin: auto;
 	}
 
-	.left-side {
-		min-width: 330%;
-		min-height: 89vh;
+	.loginImage {	
 		background: url('Images/login.jpg');
-		background-position: center center;
-		background-repeat: no-repeat;
 		background-size: cover;
+		background-position: center;
 	}
 
 	h1 {

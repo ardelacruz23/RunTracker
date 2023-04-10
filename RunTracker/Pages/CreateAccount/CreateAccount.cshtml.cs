@@ -43,7 +43,7 @@ namespace RunTracker.Pages
 
                     // 6. connection will close automatically once Using{} block is exited
                 }// USING
-                return RedirectToPage("Index");
+                return RedirectToPage("/Calendar/Calendar");
             }// IF
             else
             {

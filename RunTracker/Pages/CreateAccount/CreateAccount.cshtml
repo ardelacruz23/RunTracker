@@ -1,44 +1,8 @@
 ﻿@page
 @model RunTracker.Pages.CreateAccountModel
 @{
+    ViewData["Title"] = "Create Account";
 }
-
-<script type="text/javascript">
-    function validateInput(){
-        var isValid = true;
-        var firstName = document.getElementById("fname-input");
-        var lastName = documentgetElementById("lname-input")
-        var email = document.getElementById("email-input");
-        var password = document.getElementById("password-input");
-        var rePassword = document.getElementById("re-password-input");
-
-        if (firstName.value == "") {
-            isValid = false;
-            document.getElementById("fname-error").innerHTML = "This field is required.";
-        }
-
-        if (lastName.value == "") {
-            isValid = false;
-            document.getElementById("lname-error").innerHTML = "This field is required.";
-        }
-
-        if (email.value == "") {
-            isValid = false;
-            document.getElementById("email-error").innerHTML = "This field is required.";
-        }
-
-        if (password.value == "") {
-            isValid = false;
-            document.getElementById("password-error").innerHTML = "This field is required.";
-        }
-
-        if (rePassword.value == "") {
-            isValid = false;
-            document.getElementById("re-password-error").innerHTML = "This field is required.";
-        }
-        return isValid;
-    }
-</script>
 
 <head>
     <style>
@@ -49,38 +13,78 @@
     </style>
 </head>
 
+<script type="text/javascript">
+    function validateInput() {
+        var isValid = true;
+        var firstName = document.getElementById("fname-input");
+        var lastName = document.getElementById("lname-input");
+        var email = document.getElementById("email-input");
+        var password = document.getElementById("password-input");
+       // var rePassword = document.getElementById("re-password-input");
+       
 
-    <h1 class="createAccount"><strong>Create Account</strong></h1>
+        if (firstName.value == "") {
+            isValid = false;
+            document.getElementById("fname-error").innerHTML = "This field is required.";
+        }
+
+        if (lastName.value == "") {
+            isValid = false;
+            document.getElementById("lname-error").innerHTML = "This field is required.";
+            
+        }
+
+        if (email.value == "") {
+            isValid = false;
+            document.getElementById("email-error").innerHTML = "This field is required.";
+            
+        }
+
+        if (password.value == "") {
+            isValid = false;
+            document.getElementById("password-error").innerHTML = "This field is required.";
+
+        }
+
+        //if (rePassword.value == "") {
+        //    isValid = false;
+        //    document.getElementById("re-password-error").innerHTML = "This field is required.";
+        //}
+        return isValid;
+    }
+</script>
+
+    <h1 class="createAccount"><strong>Create an account</strong></h1>
     <h4 class="misc">It's quick and easy!</h4>
 
     <div class="bordered">
         <form method="POST" class="createForm">
             <div class="row mb-3">
-                <label for="fname" class="col-sm-2 fnameLabel">First Name</label>
+            <label for="fname" class="col-lg-3 col-form-label-lg">First Name</label>
                 <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
                 <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
             </div>
             <div class="row mb-3">
-                <label for="lname" class="col-sm-2 lnameLabel">Last Name</label>
+            <label for="lname" class="col-lg-3 col-form-label-lg">Last Name</label>
                 <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
                 <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
             </div>
             <div class="row mb-3">
-                <label for="email" class="col-sm-2 emailLabel">Email</label>
+            <label for="email" class="col-lg-3 col-form-label-lg">Email</label>
                 <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
                 <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
-                <label for="password" class="col-sm-2 passwordLabel">Password</label>
+            <label for="password" class="col-lg-3 col-form-label-lg">Password</label>
                 <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
-            <div class="row mb-3">
-                <label for="re-password" class="col-sm-2 rePasswordLabel">Re-enter Password</label>
+@*            <div class="row mb-3">
+                <label for="re-password">Re-enter Password</label>
                 <input type="text" class="form-control rePasswordInput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>
-            <div class="d-grid col-4 mx-auto">
+            </div>*@
+            <div class="row mb-3">
                 <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
             </div>
         </form>
@@ -89,9 +93,9 @@
 
 <style>
     .createForm input[type="text"] {
-        box-sizing: border-box;
-        margin: 30px;
-        width: 500px;
+        display: inline;
+/*        box-sizing: border-box;*/
+        width: 60%;
         border-radius: 8px;
         font-size: 18px;
         padding: 0.8rem;
@@ -99,33 +103,30 @@
         text-align: left;
         background-color: #F4F6F6;
         border-color: #F2F4F4;
-        margin-top: 10px;
-        margin-bottom: 20px;
     }
 
-    .fnameLabel, .lnameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
+    label {
         font-size: 20px;
-        text-align: right;
-        width: 150px;
+        text-align: left;
+        width: 20%;
         font-weight: bold;
         font-family: 'Raleway', sans-serif;
-        display: inline-block;
+        display: inline;
     }
 
     .createAccount, .misc {
         font-family: 'Raleway', sans-serif;
-        font-size: 80px;
+        font-size: 36px;
     }
 
-    .createAccount {
-        margin-top: 80px;
+    .createAccount {        
         color: white;
     }
 
     .misc {
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         color: #E8E8E8;
-        font-size: 60px;
+        font-size: 24px;
     }
 
     .row {
@@ -134,22 +135,26 @@
     }
 
     .btn {
+        width: 40%;
         font-size: 25px;
         font-family: 'Raleway', sans-serif;
         border-radius: 8px;
         border: none;
         font-weight: bold;
         padding: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
         align-content: center;
         background: rgb(113,156,186);
         background: linear-gradient(153deg, rgba(113,156,186,1) 0%, rgba(108,148,185,1) 95%);
     }
 
     .bordered {
+        width: 60%;
         border-radius: 8px;
         border: none;
         background-color: #E5E7E9;
-        margin-top: 40px;
-        padding: 45px;
+        padding-left: 45px;
+        padding-top: 20px;
     }
 </style>

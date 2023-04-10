@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using Microsoft.Identity.Client;
 using RunTracker.Models;
 using System;
+using System.Reflection.Metadata;
 
 namespace RunTracker.Pages.Shared
 {
@@ -12,8 +15,14 @@ namespace RunTracker.Pages.Shared
         public Models.Run NewRun { get; set; } = new Models.Run();
         public void OnGet()
         {
+            
+        }
+
+        public void OnAddLocation()
+        {
         
         }
+
         public IActionResult OnPost()
         {        
             if (ModelState.IsValid)
@@ -29,17 +38,50 @@ namespace RunTracker.Pages.Shared
                  * 6. Close the connection
                  *
                  */
+                               
+                if (NewRun.PhotoURL == null)
+                {
+                    NewRun.PhotoURL = "N/A";
+                }
+                if (NewRun.LocationName == null) 
+                {
+                    NewRun.LocationName = "N/A";
+                }
+                if (NewRun.City == null)
+                {
+                    NewRun.City = "N/A";
+                }
+                if (NewRun.State == null) 
+                {
+                    NewRun.State = "N/A";
+                }
+                if (NewRun.Country == null) 
+                {
+                    NewRun.Country = "N/A";
+                }
+
+                
+                
 
                 // Use the StartTime, EndTime and Distance to calculate the pace in mins per mile
+                TimeOnly EndTime = TimeOnly.Parse(NewRun.EndTime);
+                TimeOnly StartTime = TimeOnly.Parse(NewRun.StartTime);
                 decimal calcPace;
-                decimal calcTime = (decimal)(NewRun.EndTime - NewRun.StartTime).TotalMinutes;
+                decimal calcTime = (decimal)(EndTime - StartTime).TotalMinutes;
+                TimeSpan durationSpan = TimeSpan.FromMinutes((double)calcTime);
+                TimeOnly durationTime = TimeOnly.FromTimeSpan(durationSpan);
+                NewRun.Duration = durationTime.ToString();
                 calcPace = (calcTime / NewRun.Distance);
+                TimeSpan paceSpan= TimeSpan.FromMinutes((double)calcPace);
+                TimeOnly paceTime = TimeOnly.FromTimeSpan(paceSpan);
+                string paceString = paceTime.ToString();
+                
 
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
                 {
                     // 2. Paramaterized Query
-                    string sql = "INSERT INTO [Run] (RunName, UserId, StartTime, EndTime, Distance, Pace, PhotoURL) " +
-                        "VALUES (@runName, @userId, @runDate,  @startTime, @endTime, @distance, @pace, @photoURL)";
+                    string sql = "INSERT INTO [Run] (RunName, UserId, RunDate, StartTime, EndTime, Distance, Measurement, Duration, Pace, PhotoURL, LocationName, City, State, Country) " +
+                        "VALUES (@runName, @userId, @runDate,  @startTime, @endTime, @distance, @measurement, @duration, @pace, @photoURL, @locationName, @city, @state, @country)";
 
                     // 3. 
                     SqlCommand cmd = new SqlCommand(sql, conn);
@@ -48,13 +90,15 @@ namespace RunTracker.Pages.Shared
                     cmd.Parameters.AddWithValue("@runDate", NewRun.RunDate);
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
-                    cmd.Parameters.AddWithValue("@pace", calcPace);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
+                    cmd.Parameters.AddWithValue("@measurement", "Measurement");
+                    cmd.Parameters.AddWithValue("@duration", NewRun.Duration);
+                    cmd.Parameters.AddWithValue("@pace", paceString);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
-                    //cmd.Parameters.AddWithValue("@locationName", NewRun.LocationName);
-                    //cmd.Parameters.AddWithValue("@city", NewRun.City);
-                    //cmd.Parameters.AddWithValue("@state", NewRun.State);
-                    //cmd.Parameters.AddWithValue("@country", NewRun.Country);
+                    cmd.Parameters.AddWithValue("@locationName", NewRun.LocationName);
+                    cmd.Parameters.AddWithValue("@city", NewRun.City);
+                    cmd.Parameters.AddWithValue("@state", NewRun.State);
+                    cmd.Parameters.AddWithValue("@country", NewRun.Country);
 
                     // 4. 
                     conn.Open();
@@ -66,8 +110,8 @@ namespace RunTracker.Pages.Shared
 
                     // 6. connection will close automatically once Using{} block is exited
                 }// USING
-                return RedirectToPage("Index");
-}
+                return RedirectToPage("/DayView/DayView");
+            }
             else
             {
                 return Page();

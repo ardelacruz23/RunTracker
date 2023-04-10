@@ -64,4 +64,7 @@
     <Build Include="dbo\Tables\Run.sql" />
     <Build Include="dbo\Tables\Admin.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="SyncDataScript.sql" />
+  </ItemGroup>
 </Project>
