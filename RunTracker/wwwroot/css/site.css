@@ -218,15 +218,11 @@ body {
     margin-top: 30px;
 }
 
-.bordered {
-    border-radius: 8px;
-    width: 60%;
-    border: none;
-    background-color: #E5E7E9;
-    padding: 10px;
-    margin-left:auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+.welcome-text2 {
+    color: black;
+    font-size: 75px;
+    font-family: 'Monoton', cursive;
+    text-align: center;
 }
 
 /* calendar styling */
@@ -281,9 +277,4 @@ td {
     margin-bottom: 10px;
 }
 /* end of calendar styling */
-.welcome-text2 {
-    color: black;
-    font-size: 75px;
-    font-family: 'Monoton', cursive;
-    text-align: center;
-}
+
