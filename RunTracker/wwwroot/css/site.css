@@ -189,15 +189,13 @@ td {
     margin-top: 20px;
 }
 
+.left-btn {
+    margin-left: 10px;
+}
+
 .days-of-week {
     background-color: lightgrey;
     margin: 0 auto;
-}
-
-.btn {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-right: 0;
 }
 
 .calendar, .days-of-week {
