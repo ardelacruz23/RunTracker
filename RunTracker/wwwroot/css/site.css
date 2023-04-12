@@ -189,10 +189,6 @@ td {
     margin-top: 20px;
 }
 
-.left-btn {
-    margin-left: 10px;
-}
-
 .days-of-week {
     background-color: lightgrey;
     margin: 0 auto;
@@ -203,6 +199,16 @@ td {
     text-align: center;
 }
 
+.month-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.span {
+    margin-left: 0;
+}
+
 .calendar {
     margin: 0 auto;
 }
@@ -210,7 +216,6 @@ td {
 .month-year {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    display: flex;
     font-size: 35px;
     margin-bottom: 10px;
 }
