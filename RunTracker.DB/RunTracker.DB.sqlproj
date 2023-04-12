@@ -6,14 +6,14 @@
     <Name>RunTracker.DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{b0e8f42d-14a1-4667-899c-429560b0cab6}</ProjectGuid>
+    <ProjectGuid>{61010c8a-c078-4979-93cd-aadf802f3590}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>RunTracker.DB</RootNamespace>
     <AssemblyName>RunTracker.DB</AssemblyName>
-    <ModelCollation>1033,CI</ModelCollation>
+    <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,8 +22,6 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
-    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -62,8 +60,11 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Admin.sql" />
-    <Build Include="dbo\Tables\Run.sql" />
     <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Run.sql" />
+    <Build Include="dbo\Tables\Admin.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="SyncDataScript.sql" />
   </ItemGroup>
 </Project>

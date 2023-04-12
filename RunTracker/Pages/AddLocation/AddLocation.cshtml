@@ -2,3 +2,73 @@
 @model RunTracker.Pages.AddLocation.AddLocationModel
 @{
 }
+
+<head>
+    <style>
+        body {
+            background: rgb(89,149,191);
+            background: linear-gradient(153deg, rgba(89,149,191,1) 0%, rgba(51,89,168,1) 95%);
+        }
+    </style>
+</head>
+
+<script type="text/javascript">
+    function validateInput() {
+        var isValid = true;
+        var location = document.getElementById("locationName");
+        var city = document.getElementById("city");
+        var state = document.getElementById("state");
+        var country = document.getElementById("country");
+
+        if (location.value == "") {
+            isValid = false;
+            document.getElementById("locationError").innerHTML = "This field is required.";
+        }
+        if (city.value == "") {
+            isValid = false;
+            document.getElementById("cityError").innerHTML = "This field is required.";
+        }
+        if (state.value == "") {
+            isValid = false;
+            document.getElementById("stateError").innerHTML = "This field is required.";
+        }
+        if (country.value == "") {
+            isValid = false;
+            document.getElementById("countryError").innerHTML = "This field is reqired.";
+        }
+               
+        return isValid;
+    }
+
+</script>
+
+<form method="POST" class="addRunForm">
+
+    <div class="row mb-4">
+        <input type="text" class="col-lg-8 col-form-label-lg" id="locationName" @*asp-for="NewRun.LocationName"*@ placeholder="Enter the location of the run">
+        <span class="text-danger" id="locationError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="city" class="col-lg-3 col-form-label-lg addRunLabel">City</label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="city" @*asp-for="NewRun.City"*@>
+        <span class="text-danger" id="cityError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="state" class="col-lg-3 col-form-label-lg addRunLabel">State</label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="state" @*asp-for="NewRun.State"*@>
+        <span class="text-danger" id="stateError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <label for="country" class="col-lg-3 col-form-label-lg addRunLabel">Country</label>
+        <input type="text" class="form-control-lg col-lg-5 startEndTime" id="country" @*asp-for="NewRun.Country"*@>
+        <span class="text-danger" id="countryError"></span>
+    </div>
+
+    <div class="row mb-4 addRunRow">
+        <button type="submit" class="btn btn-success formBtn" onclick="return validateInput()">Add Location</button>
+    </div>
+
+</form>
