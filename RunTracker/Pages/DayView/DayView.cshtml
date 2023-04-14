@@ -20,26 +20,26 @@
         <div style="width: 50%; margin-right: auto; margin-bottom: auto; margin-top: auto; padding-top: 50px" class="float-child">
             @foreach (var obj in Model.RunList)
             {
-                <input type="text" class="mb-3 col-lg-6 col-form-label-md displayRunName" style="margin-left: 1px;" readonly placeholder="@obj.RunName"/>
+                <input type="text" class="mb-3 col-lg-6 col-form-label-md dayViewRunName" style="margin-left: 1px;" readonly placeholder="@obj.RunName"/>
             }
-            <div style="display:block">
+            <div class="dayViewBtn-row">
                 <a asp-page="/AddRun/AddRun" class="btn dayViewBtn" style="display:inline-block; background-color: #4CAF50;">Add Run</a>
                 <button type="submit" class="btn dayViewBtn" asp-rout-id="@Model.RunList[0].RunID" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
             </div>
         </div>
 
-        <div class="box runStats">
-            <div style="display:block; padding-top: 3%">
-                <img src="~/Images/Duration.png" style="display:inline-block; width:20%; height:20%; margin-left: 5%;"/>
-                <input type="text" class="displayStats" readonly placeholder="@Model.RunList[0].Duration hh:mm:ss" style="display: inline-block" />
+        <div class="box dayView-runInfo-divBox">
+            <div class="dayViewStats-row">
+                <img src="~/Images/Duration.png" class="dayViewStats-icon"/>
+                <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Duration    hh:mm:ss" />
             </div>
-            <div style="display:block; padding-top: 3%">
-                <img src="~/Images/Distance.png" style="display:inline-block; width:20%; height:20%; margin-left: 5%;" />
-                <input type="text" class="displayStats" readonly placeholder="@Model.RunList[0].Distance" style="display: inline-block" />
+            <div class="dayViewStats-row">
+                <img src="~/Images/Distance.png" class="dayViewStats-icon" />
+                <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Distance" />
             </div>
-            <div style="display:block; padding-top: 3%">
-                <img src="~/Images/Pace.png" style="display:inline-block; width:20%; height:20%; margin-left: 5%;" />
-                <input type="text" class="displayStats" readonly placeholder="@Model.RunList[0].Pace mins/mi" style="display: inline-block" />
+            <div class="dayViewStats-row">
+                <img src="~/Images/Pace.png" class="dayViewStats-icon" />
+                <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Pace mins/mi" />
             </div>
         </div>
         <span><button style="margin-left:50%;">Stats</button></span>
@@ -47,3 +47,7 @@
         <span><button>Location</button></span>
 
     </div>
+
+    <style>
+
+    </style>

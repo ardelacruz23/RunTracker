@@ -43,7 +43,6 @@
         return isValid;
     }
 
-
 </script>
 
 <form method="POST" class="addRunForm">
@@ -61,24 +60,24 @@
 
         <div class="row mb-3 addRunRow">
             <label for="startTime" class="col-lg-3 col-form-label-lg addRunLabel asp">Start Time</label>
-            <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="startTime" asp-for="@Model.NewRun.StartTime">
+            <input type="time" class="form-control-lg col-lg-5 addRun-startEnd"  step="1" id="startTime" asp-for="@Model.NewRun.StartTime">
             <span class="text-danger" asp-validation-for="NewRun.StartTime" id="startTimeError"></span>
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="endTime" class="col-lg-3 col-form-label-lg addRunLabel">End Time </label>
-            <input type="time" class="form-control-lg col-lg-5 startEndTime"  step="1" id="endTime" asp-for="@Model.NewRun.EndTime">
+            <input type="time" class="form-control-lg col-lg-5 addRun-startEnd"  step="1" id="endTime" asp-for="@Model.NewRun.EndTime">
             <span class="text-danger" asp-validation-for="NewRun.EndTime" id="endTimeError"></span>
         </div>
 
         <div class="row mb-3 addRunRow">
             <label for="distance" class="col-lg-3 col-form-label-lg addRunLabel">Distance</label>
-            <input type="number" class="form-control-lg distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" asp-for="@Model.NewRun.Distance" />
-            <input class="form-check-inline radioBtns" type="radio" name="inlineRadioOptions" id="miles" value="option1" >
-            <label class="form-check-inline radioLabels" for="miles">Miles</label>
-            <input class="form-check-inline radioBtns" type="radio" name="inlineRadioOptions" id="kilometers" value="option2" >
-            <label class="form-check-inline radioLabels" for="kilometers">Kilometers</label>
-        </div>
+            <input type="number" class="form-control-lg addRun-distance" value="1.0" step="0.1" min="0.1" max="100" id="distance" asp-for="@Model.NewRun.Distance"/>
+            @foreach(var measurement in Model.Measurements)
+            {
+            <input type="radio" class="form-check-inline addRun-radioBtns" asp-for="selection" value="@measurement" /> @measurement <br />
+            }
+       </div>
 
         <div class="row mb-3 addRunRow">
             <label for="runPhoto" class="col-lg-3 col-form-label-lg addRunLabel">Run Photo</label>
@@ -86,9 +85,8 @@
         </div>
 
         <div class="row mb-3 addRunRow">
-            <button type="button" class="btn btn-secondary formBtn" id="AddLocationBtn" onclick="window.location.href='/AddLocation/AddLocation'">Add Location</button>
-            <button type="submit" class="btn btn-success formBtn" onclick="return validateInput()">Create Run</button>
+            <button type="button" class="btn btn-secondary addRun-formBtn" id="AddLocationBtn" onclick="window.location.href='/AddLocation/AddLocation'">Add Location</button>
+            <button type="submit" class="btn btn-success addRun-formBtn" onclick="return validateInput()">Create Run</button>
         </div>
 
 </form>
-

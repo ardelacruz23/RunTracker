@@ -12,11 +12,15 @@ html {
 }
 body {
 }
+/* ---------------------------------------------------------------------------- */
 
 
 
+.addRun-distance { /* For the distance number input in the AddRun page form */
+    width: 15%;
+}
 
-.addRunForm {
+.addRunForm { /* For the form on AddRun page */
     border-radius: 8px;
     background-color: #E5E7E9;
     width: 60%;
@@ -24,18 +28,36 @@ body {
     margin-right: auto;
 }
 
-.addRunLabel {
+.addRun-formBtn { /* For the buttons in the AddRun page form */
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.addRunLabel { /* For the labels in the AddRun page form */
     width: 25%;
     margin-left: 5%;
 }
 
-.addRunRow {
-    font-family: 'Verdana', sans-serif;
+.addRun-radioBtns { /* For the radio buttons in the AddRun page*/
+    display: inline-block;
+    width: 5%;
+    margin-right: 0px;
+}
+
+.addRunRow { /* For the rows in the AddRun page form */
+    font-family: 'Liberation Mono', sans-serif;
     margin: auto;
     width: 100%;
 }
 
-.createAccount-bordered {
+.addRun-startEnd { /* For the startTime & endTime time input boxes in the AddRun page*/
+    width: 50%;
+    font-size: 18px;
+}
+
+.createAccount-bordered { 
     border-radius: 8px;
     border: none;
     background-color: #E5E7E9;
@@ -111,8 +133,7 @@ body {
     display: inline;
 }
 
-.dayViewBtn {
-    /* width: 150px; */
+.dayViewBtn { /* For the AddRun & DeleteRun buttons in the DayView page */
     width: 28%;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -126,7 +147,11 @@ body {
     border-radius: 15px;
 }
 
-.dayViewForm {
+.dayViewBtn-row { /* For the row spacing of the AddRun & DeleteRun buttons in the DayView page */
+    display: block;
+}
+
+.dayViewForm { /* ????????????????????????????????? */
     border-radius: 8px;
     background-color: #E5E7E9;
     width: 60%;
@@ -134,7 +159,7 @@ body {
     margin-right: auto;
 }
 
-#displayDate {
+#displayDate { /* For the textbox to display RunDate in the DayView page */
     margin: auto;
     font-size: 24px;
     color: black;
@@ -143,7 +168,15 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.displayRunName {
+.dayView-runInfo-divBox { /* For the div box section in the DayView page that displays the run stats */
+    height: 300px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: 10%;
+    background-color: white;
+}
+
+.dayViewRunName { /* For the textbox to display RunName in the DayView page */
     margin: auto;
     /*    width: 320px;  */
     width: 60%;
@@ -153,17 +186,26 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.displayStats {
+.dayViewStats-icon { /* For the icons of the Stats display box in the DayView page */
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+.dayViewStats-row { /* For the rows of the Stats display box in the DayView page */
+    display: block;
+    padding-top: 3%;
+}
+
+.dayViewStats-text { /* For the textboxes of the Stats display box in the DayView page */
     height: 60px;
     width: 60%;
     margin-left: 3%;
     font-size: 24px;
     color: black;
     font-weight: bold;
-}
-
-.distance {
-    width: 15%;
+    display: inline-block
 }
 
 .float-container {
@@ -174,13 +216,6 @@ body {
     width: 50%;
     float: left;
     padding: 20px;
-}
-
-.formBtn {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
 }
 
 .homePage {
@@ -196,29 +231,17 @@ body {
     font-weight: bold;
 }
 
-.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
+/*.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
     font-size: 25px;
     text-align: right;
     width: 100px;
     font-family: 'Poppins', sans-serif;
 }
+*/
 
 .photoURL {
     padding: 8px;
 
-}
-
-.radioBtns {
-    display: inline-block;
-    width: 5%;
-    margin-right: 0px;
-}
-
-.radioLabels {
-    font-size: 14px;
-    padding-left: 0px;
-    margin-right: 0px;
-    width: 15%;
 }
 
 .row {
@@ -227,29 +250,12 @@ body {
     align-content: center;
 }
 
-#runName, #locationName {
+#runName, #locationName { /* For the RunName textbox in the AddRun page & LocationName textbox in the AddLocation page*/
     margin: auto;
     margin-top: 20px;
     width: 80%;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-}
-
-.runStats {
-    height: 300px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: 10%;
-    background-color: white;
-}
-
-#startTime, #endTime {
-    width: 320px;
-}
-
-.startEndTime {
-    width: 50%;
-    font-size: 18px;
 }
 
 .welcome-text1 {
@@ -333,4 +339,3 @@ td {
     margin-bottom: 10px;
 }
 /* end of calendar styling */
-
