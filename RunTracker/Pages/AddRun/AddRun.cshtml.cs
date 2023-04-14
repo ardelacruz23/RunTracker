@@ -5,6 +5,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Identity.Client;
 using RunTracker.Models;
 using System;
+using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
 
 namespace RunTracker.Pages.Shared
@@ -13,14 +14,12 @@ namespace RunTracker.Pages.Shared
     {
         [BindProperty]
         public Models.Run NewRun { get; set; } = new Models.Run();
+        [BindProperty]
+        public string selection { get; set; }
+        public string[] Measurements = new string[]{ "Miles", "Kilometers" };
         public void OnGet()
         {
             
-        }
-
-        public void OnAddLocation()
-        {
-        
         }
 
         public IActionResult OnPost()
@@ -38,7 +37,7 @@ namespace RunTracker.Pages.Shared
                  * 6. Close the connection
                  *
                  */
-                               
+
                 if (NewRun.PhotoURL == null)
                 {
                     NewRun.PhotoURL = "N/A";
@@ -72,9 +71,8 @@ namespace RunTracker.Pages.Shared
                 TimeOnly durationTime = TimeOnly.FromTimeSpan(durationSpan);
                 NewRun.Duration = durationTime.ToString();
                 calcPace = (calcTime / NewRun.Distance);
-                TimeSpan paceSpan= TimeSpan.FromMinutes((double)calcPace);
-                TimeOnly paceTime = TimeOnly.FromTimeSpan(paceSpan);
-                string paceString = paceTime.ToString();
+                TimeSpan paceSpan= TimeSpan.FromMinutes((double)calcPace);                
+                string paceString = paceSpan.ToString();
                 
 
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
@@ -91,7 +89,7 @@ namespace RunTracker.Pages.Shared
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
-                    cmd.Parameters.AddWithValue("@measurement", "Measurement");
+                    cmd.Parameters.AddWithValue("@measurement", NewRun.Measurement);
                     cmd.Parameters.AddWithValue("@duration", NewRun.Duration);
                     cmd.Parameters.AddWithValue("@pace", paceString);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);

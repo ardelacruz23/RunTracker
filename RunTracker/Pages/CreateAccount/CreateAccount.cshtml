@@ -20,7 +20,7 @@
         var lastName = document.getElementById("lname-input");
         var email = document.getElementById("email-input");
         var password = document.getElementById("password-input");
-       // var rePassword = document.getElementById("re-password-input");
+        var rePassword = document.getElementById("re-password-input");
        
 
         if (firstName.value == "") {
@@ -46,10 +46,10 @@
 
         }
 
-        //if (rePassword.value == "") {
-        //    isValid = false;
-        //    document.getElementById("re-password-error").innerHTML = "This field is required.";
-        //}
+        if (rePassword.value == "") {
+            isValid = false;
+            document.getElementById("re-password-error").innerHTML = "This field is required.";
+        }
         return isValid;
     }
 </script>
@@ -60,30 +60,30 @@
     <div class="bordered">
         <form method="POST" class="createForm">
             <div class="row mb-3">
-            <label for="fname" class="col-lg-3 col-form-label-lg">First Name</label>
+            <label for="fname" class="col-md-3 col-form-label-md">First Name</label>
                 <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
                 <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
             </div>
             <div class="row mb-3">
-            <label for="lname" class="col-lg-3 col-form-label-lg">Last Name</label>
+            <label for="lname" class="col-md-3 col-form-label-md">Last Name</label>
                 <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
                 <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
             </div>
             <div class="row mb-3">
-            <label for="email" class="col-lg-3 col-form-label-lg">Email</label>
+            <label for="email" class="col-md-3 col-form-label-md">Email</label>
                 <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
                 <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
-            <label for="password" class="col-lg-3 col-form-label-lg">Password</label>
+            <label for="password" class="col-md-3 col-form-label-md">Password</label>
                 <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
-@*            <div class="row mb-3">
-                <label for="re-password">Re-enter Password</label>
-                <input type="text" class="form-control rePasswordInput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
+            <div class="row mb-3">
+            <label for="re-password" class="col-md-3 col-form-label-md" >Re-enter password</label>
+                <input type="text" class="form-control repasswordinput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>*@
+            </div>
             <div class="row mb-3">
                 <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
             </div>
@@ -97,8 +97,8 @@
 /*        box-sizing: border-box;*/
         width: 60%;
         border-radius: 8px;
-        font-size: 18px;
-        padding: 0.8rem;
+        font-size: 14px;
+        padding: 0.6rem;
         font-family: 'Raleway', sans-serif;
         text-align: left;
         background-color: #F4F6F6;
@@ -136,7 +136,7 @@
 
     .btn {
         width: 40%;
-        font-size: 25px;
+        font-size: 18px;
         font-family: 'Raleway', sans-serif;
         border-radius: 8px;
         border: none;
