@@ -79,11 +79,11 @@
             <input type="text" class="form-control createForm-input" id="password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
-@*            <div class="row mb-3">
-        <label for="re-password createForm-label">Re-enter Password</label>
-        <input type="text" class="form-control createForm-input" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
+            <div class="row mb-3">
+            <label for="re-password" class="col-lg-3 col-form-label-lg createForm-label">Re-enter Password</label>
+            <input type="text" class="form-control createForm-input" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
-            </div>*@
+            </div>
             <div class="row mb-3">
             <button type="submit" class="btn btn-primary createAccountBtn" onclick="return validateInput()">Create Account</button>
             </div>
