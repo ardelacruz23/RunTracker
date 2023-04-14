@@ -54,107 +54,38 @@
     }
 </script>
 
-    <h1 class="createAccount"><strong>Create an account</strong></h1>
-    <h4 class="misc">It's quick and easy!</h4>
+    <h1 class="create-account-header"><strong>Create an account</strong></h1>
+    <h4 class="misc-header">It's quick and easy!</h4>
 
-    <div class="bordered">
+    <div class="createAccount-bordered">
         <form method="POST" class="createForm">
-            <div class="row mb-3">
-            <label for="fname" class="col-md-3 col-form-label-md">First Name</label>
-                <input type="text" class="form-control fnameInput" id="fname-input" asp-for="NewUser.FirstName"><br>
+            <div class="row mb-3" >
+            <label for="fname" class="col-lg-3 col-form-label-lg createForm-label">First Name</label>
+            <input type="text" class="form-control createForm-input" id="fname-input" asp-for="NewUser.FirstName"><br>
                 <span class="text-danger" id="fname-error" asp-validation-for="NewUser.FirstName"></span>
             </div>
             <div class="row mb-3">
-            <label for="lname" class="col-md-3 col-form-label-md">Last Name</label>
-                <input type="text" class="form-control lnameInput" id="lname-input" asp-for="NewUser.LastName"><br>
+            <label for="lname" class="col-lg-3 col-form-label-lg createForm-label">Last Name</label>
+            <input type="text" class="form-control createForm-input" id="lname-input" asp-for="NewUser.LastName"><br>
                 <span class="text-danger" id="lname-error" asp-validation-for="NewUser.LastName"></span>
             </div>
             <div class="row mb-3">
-            <label for="email" class="col-md-3 col-form-label-md">Email</label>
-                <input type="text" class="form-control emailInput" id="email-input" asp-for="NewUser.Email"><br>
+            <label for="email" class="col-lg-3 col-form-label-lg createForm-label">Email</label>
+            <input type="text" class="form-control createForm-input" id="email-input" asp-for="NewUser.Email"><br>
                 <span class="text-danger" id="email-error" asp-validation-for="NewUser.Email"></span>
             </div>
             <div class="row mb-3">
-            <label for="password" class="col-md-3 col-form-label-md">Password</label>
-                <input type="text" class="form-control passwordInput" id="password-input" asp-for="NewUser.PasswordHash"><br>
+            <label for="password" class="col-lg-3 col-form-label-lg createForm-label">Password</label>
+            <input type="text" class="form-control createForm-input" id="password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
-            <div class="row mb-3">
-            <label for="re-password" class="col-md-3 col-form-label-md" >Re-enter password</label>
-                <input type="text" class="form-control repasswordinput" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
+@*            <div class="row mb-3">
+        <label for="re-password createForm-label">Re-enter Password</label>
+        <input type="text" class="form-control createForm-input" id="re-password-input" asp-for="NewUser.PasswordHash"><br>
                 <span class="text-danger" id="re-password-error" asp-validation-for="NewUser.PasswordHash"></span>
             </div>
             <div class="row mb-3">
-                <button type="submit" class="btn btn-primary" onclick="return validateInput()">Create Account</button>
+            <button type="submit" class="btn btn-primary createAccountBtn" onclick="return validateInput()">Create Account</button>
             </div>
         </form>
     </div>
-
-
-<style>
-    .createForm input[type="text"] {
-        display: inline;
-/*        box-sizing: border-box;*/
-        width: 60%;
-        border-radius: 8px;
-        font-size: 14px;
-        padding: 0.6rem;
-        font-family: 'Raleway', sans-serif;
-        text-align: left;
-        background-color: #F4F6F6;
-        border-color: #F2F4F4;
-    }
-
-    label {
-        font-size: 20px;
-        text-align: left;
-        width: 20%;
-        font-weight: bold;
-        font-family: 'Raleway', sans-serif;
-        display: inline;
-    }
-
-    .createAccount, .misc {
-        font-family: 'Raleway', sans-serif;
-        font-size: 36px;
-    }
-
-    .createAccount {        
-        color: white;
-    }
-
-    .misc {
-        margin-bottom: 10px;
-        color: #E8E8E8;
-        font-size: 24px;
-    }
-
-    .row {
-        display: flex; 
-        align-items: center;
-    }
-
-    .btn {
-        width: 40%;
-        font-size: 18px;
-        font-family: 'Raleway', sans-serif;
-        border-radius: 8px;
-        border: none;
-        font-weight: bold;
-        padding: 0.5rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-content: center;
-        background: rgb(113,156,186);
-        background: linear-gradient(153deg, rgba(113,156,186,1) 0%, rgba(108,148,185,1) 95%);
-    }
-
-    .bordered {
-        width: 60%;
-        border-radius: 8px;
-        border: none;
-        background-color: #E5E7E9;
-        padding-left: 45px;
-        padding-top: 20px;
-    }
-</style>
