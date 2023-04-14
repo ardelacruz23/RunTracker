@@ -57,7 +57,7 @@ body {
     font-size: 18px;
 }
 
-.bordered { 
+.createAccount-bordered { 
     border-radius: 8px;
     border: none;
     background-color: #E5E7E9;
@@ -231,12 +231,13 @@ body {
     font-weight: bold;
 }
 
-.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
+/*.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
     font-size: 25px;
     text-align: right;
     width: 100px;
     font-family: 'Poppins', sans-serif;
 }
+*/
 
 .photoURL {
     padding: 8px;
