@@ -30,54 +30,92 @@ body {
 }
 
 .addRunRow {
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Verdana', sans-serif;
     margin: auto;
     width: 100%;
 }
 
-.bordered {
+.createAccount-bordered {
     border-radius: 8px;
-    width: 60%;
     border: none;
     background-color: #E5E7E9;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    width: 60%;
+    border: none;
+    background-color: #E5E7E9;
+    padding-left: 45px;
+    padding-top: 20px;
 }
 
-.btn-create {
+/* .btn-create {
     font-size: 25px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     border-radius: 8px;
     border: none;
+    padding: 10px;
     align-content: center;
     background-color: #7A96B4;
     color: white;
-}
+} */
 
-.createAccount, .misc {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 0px;
-    font-family: 'Raleway', sans-serif;
-}
-
-.createForm input[type="text"] {
-    box-sizing: border-box;
-    margin-right: auto;
+.createAccountBtn {
     width: 50%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
     border-radius: 8px;
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.create-account-header {
+    font-size: 36px;
+    color: white;
+}
+
+/* from Create Account */
+.misc-header {
+    color: #E8E8E8;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.create-account-header, .misc-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.createForm-input {
+    display: inline;
+    width: 60%;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
     background-color: #F4F6F6;
     border-color: #F2F4F4;
-    /*margin-bottom: 10px;*/
+}
+
+.createForm-label {
+    font-size: 20px;
+    text-align: right;
+    width: 20%;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    display: inline;
 }
 
 .dayViewBtn {
     /* width: 150px; */
     width: 28%;
     color: white;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -102,17 +140,17 @@ body {
     color: black;
     margin-top: 20px;
     text-align: center;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .displayRunName {
     margin: auto;
-/*    width: 320px;  */
+    /*    width: 320px;  */
     width: 60%;
     font-size: 24px;
     color: black;
     text-align: center;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .displayStats {
@@ -149,20 +187,25 @@ body {
     color: white;
     font-size: 100px;
     font-weight: bold;
-    font-family: 'Verdana';
+    font-family: 'Poppins';
 }
 
 .misc {
     margin-bottom: 10px;
     color: #5D6D7E;
+    font-weight: bold;
 }
 
 .nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
-    font-size: 20px;
-    text-align: left;
-    margin-left: auto;
-    width: 150px;
-    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    text-align: right;
+    width: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.photoURL {
+    padding: 8px;
+
 }
 
 .radioBtns {
@@ -189,7 +232,7 @@ body {
     margin-top: 20px;
     width: 80%;
     text-align: center;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .runStats {
@@ -212,7 +255,7 @@ body {
 .welcome-text1 {
     color: #1C2833;
     font-weight: bold;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 50px;
     text-align: center;
     margin-top: 30px;
@@ -221,14 +264,14 @@ body {
 .welcome-text2 {
     color: black;
     font-size: 75px;
-    font-family: 'Monoton', cursive;
+    font-family: 'Poppins', cursive;
     text-align: center;
 }
 
 /* calendar styling */
 td {
-    width: 10rem;
-    height: 7rem;
+    width: 7rem;
+    height: 5rem;
     overflow: hidden;
     word-wrap: break-word;
     text-align: left;
@@ -249,6 +292,14 @@ td {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     margin-top: 20px;
+}
+
+.left-btn, .right-btn {
+    margin: 5px;
+}
+
+.left-btn {
+    margin-left: 20px;
 }
 
 .days-of-week {
