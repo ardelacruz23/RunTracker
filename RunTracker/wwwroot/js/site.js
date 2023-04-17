@@ -17,27 +17,40 @@ let currMonth = date.getMonth();
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function renderCalendar() {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
-    let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-    let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
-    let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay();
+    let lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
+    let lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay();
+    let lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
 
     let daysInCalendar = "";
 
-    for (let i = 0; i < firstDayofMonth; i++) {
-        daysInCalendar += `<td class="inactive">${lastDateofLastMonth - firstDayofMonth + i + 1}</td>`;
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        daysInCalendar += `<td class="inactive">${lastDateOfLastMonth - firstDayOfMonth + i + 1}</td>`;
     }
 
-    for (let i = 1; i <= lastDateofMonth; i++) {
+    for (let i = 1; i <= lastDateOfMonth; i++) {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-        daysInCalendar += `<td class="${isToday}">${i}</td>`;
+        let hasData = localStorage.getItem(`${currYear}-${currMonth + 1}-${i}`) ? "has-data" : "";
+        daysInCalendar += `<td class="${isToday} ${hasData}" data-date="${i}">${i}<span class="dot"></span></td>`;
 
-        if ((i + firstDayofMonth - 1) % 7 === 6 || i === lastDateofMonth) {
+        if ((i + firstDayOfMonth - 1) % 7 === 6 || i === lastDateOfMonth) {
             daysInCalendar = `<tr>${daysInCalendar}</tr>`;
         }
     }
 
     calendar.innerHTML = daysInCalendar;
+
+    // Add event listener to each td element
+    const tdElements = document.querySelectorAll(".calendar td");
+    tdElements.forEach(td => {
+        td.addEventListener("click", () => {
+            // Get the date of the clicked cell
+            const clickedDate = td.getAttribute("data-date");
+
+            // Navigate to a specific page using the clicked date
+            window.location.href = `https://localhost:7147/AddRun/AddRun?date=${clickedDate}`;
+        });
+    });
 }
 
 renderCalendar();
