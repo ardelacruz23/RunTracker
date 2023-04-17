@@ -187,7 +187,7 @@ body {
     color: black;
     margin-top: 20px;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
 .dayView-runInfo-divBox { /* For the div box section in the DayView page that displays the run stats */
@@ -205,7 +205,7 @@ body {
     font-size: 24px;
     color: black;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
 .dayViewStats-icon { /* For the icons of the Stats display box in the DayView page */
@@ -252,7 +252,7 @@ body {
     font-family: 'Poppins';
 }
 
-.misc {
+.misc-header {
     margin-bottom: 10px;
     color: #5D6D7E;
     font-weight: bold;
@@ -282,7 +282,7 @@ body {
     margin-top: 20px;
     width: 80%;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
 .welcome-text1 {
@@ -316,6 +316,15 @@ td {
 .calendar td {
     vertical-align: top;
     text-align: left;
+}
+
+.calendar td {
+    transition: transform 0.3s ease-in-out;
+}
+
+.calendar td:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-container {
