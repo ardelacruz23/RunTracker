@@ -24,11 +24,8 @@ namespace RunTracker.Models
         public string? Pace { get; set; }
         public string? PhotoURL { get; set; }
         public string? LocationName { get; set; }
-
         public string? City { get; set; }
-
         public string? State { get; set; }
-
         public string? Country { get; set; }
 
     }

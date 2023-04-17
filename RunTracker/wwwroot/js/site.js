@@ -61,4 +61,21 @@ rightBtn.addEventListener("click", () => {
     monthYear.textContent = `${months[currMonth]} ${currYear}`;
     renderCalendar();
 });
-/* end of calendar js */
+
+// select all the day cells
+const dayCells = document.querySelectorAll(".calendar td");
+
+// loop through each day cell and add a click listener
+dayCells.forEach((cell) => {
+    cell.addEventListener("click", () => {
+        // get the day value from the cell
+        const day = cell.textContent.trim();
+
+        // build the URL for the DayView page
+        const url = `/DayView?day=${day}&month=${currMonth + 1}&year=${currYear}`;
+
+        // redirect the user to the DayView page
+        window.location.href = url;
+    });
+});
+/* end of calendar js */ 

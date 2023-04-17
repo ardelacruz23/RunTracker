@@ -1,7 +1,8 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home Page";
+	Layout = "_Layout-Login";
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="split left loginImage">
@@ -25,7 +26,6 @@
 </div>
 
 <style>
-
 	.split {
 		height: 100%;
 		width: 50%;
@@ -48,7 +48,7 @@
 		background-color: white;
 	}
 
-	.loginImage {	
+	.loginImage { /* Background image for the login page*/
 		background: url('Images/login.jpg');
 		background-size: cover;
 		background-position: center;
@@ -74,9 +74,9 @@
 		transition-duration: 0.4s;
 	}
 
-	input[type=email], [type=password] {
+	 input[type=email], [type=password] {
 		padding: 0.7rem;
-		width: 220%;
+		width: 100%;
 		margin: 15px 0;
 		border: 0;
 		outline: 0;
@@ -84,14 +84,14 @@
 		border-bottom: 1px solid black;
 		font-size: 15px;
 		font-family: 'Raleway', sans-serif;
-	}
+	} 
 
 	label {
 		font-size: 1.5rem;
-	}
+	} 
 
 	input[type=submit] {
-		width: 90%;
+		width: 70%;
 		background-color: black;
 		color: white;
 		font-size: 20px;

@@ -11,23 +11,15 @@ Post-Deployment Script Template
 */
 SET IDENTITY_INSERT [dbo].[Run] ON 
 GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (2, 1, N'TEST Run', CAST(N'0001-01-01' AS Date), CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), CAST(0.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (2, 1, N'TEST Run', N'0001-01-01', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), NULL, NULL, NULL, N'No Photo Provided', NULL, NULL, NULL, NULL)
 GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (3, 1, N'TEST Run', CAST(N'0001-01-01' AS Date), CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), CAST(0.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (3, 1, N'TEST Run', N'0001-01-01', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), NULL, NULL, NULL, N'No Photo Provided', NULL, NULL, NULL, NULL)
 GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (4, 1, N'TEST Run', CAST(N'0001-01-01' AS Date), CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), CAST(0.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (2006, 1, N'Test Day View', N'2023-04-10', CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(5.0 AS Decimal(3, 1)), NULL, CAST(N'01:00:00' AS Time), CAST(N'00:12:00' AS Time), N'N/A', N'N/A', N'N/A', N'N/A', N'N/A')
 GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1002, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(1.0 AS Decimal(3, 1)), CAST(0.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (2012, 1, N'TestPace', N'2023-04-10', CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(3.9 AS Decimal(3, 1)), N'Measurement', CAST(N'01:00:00' AS Time), CAST(N'00:15:23' AS Time), N'N/A', N'N/A', N'N/A', N'N/A', N'N/A')
 GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1003, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(5.0 AS Decimal(3, 1)), CAST(12.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
-GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1004, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(2.5 AS Decimal(3, 1)), CAST(24.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
-GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1005, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'12:00:00' AS Time), CAST(N'13:00:00' AS Time), CAST(6.0 AS Decimal(3, 1)), CAST(10.0 AS Decimal(3, 1)), N'No Photo Provided', NULL, NULL, NULL, NULL)
-GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1006, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'14:01:46' AS Time), CAST(N'15:01:49' AS Time), CAST(5.4 AS Decimal(3, 1)), CAST(11.1 AS Decimal(3, 1)), N'N/A', N'', N'', N'', N'')
-GO
-INSERT [dbo].[Run] ([RunId], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (1007, 1, N'TEST Run', CAST(N'2023-04-04' AS Date), CAST(N'14:05:19' AS Time), CAST(N'15:05:21' AS Time), CAST(7.3 AS Decimal(3, 1)), CAST(8.2 AS Decimal(3, 1)), N'N/A', N'N/A', N'N/A', N'N/A', N'N/A')
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (4009, 1, N'TestLocation', N'2023-04-16', CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(1.2 AS Decimal(3, 1)), N'Measurement', CAST(N'01:00:00' AS Time), CAST(N'00:50:00' AS Time), N'RunPhoto', N'RunLocation', N'RunCity', N'RunState', N'RunCountry')
 GO
 SET IDENTITY_INSERT [dbo].[Run] OFF
 GO
@@ -39,6 +31,9 @@ INSERT [dbo].[User] ([UserID], [Email], [FirstName], [LastName], [LastLogin], [A
 GO
 INSERT [dbo].[User] ([UserID], [Email], [FirstName], [LastName], [LastLogin], [AvatarURL], [Salt], [PasswordHash]) VALUES (3, N'Test', N'TestFirstName', N'Test', CAST(N'1900-01-01T00:00:06.677' AS DateTime), NULL, N'1234', N'TestPassword')
 GO
+INSERT [dbo].[User] ([UserID], [Email], [FirstName], [LastName], [LastLogin], [AvatarURL], [Salt], [PasswordHash]) VALUES (4, N'123', N'First Name', N'Last Name', NULL, NULL, N'1234', N'123')
+GO
+INSERT [dbo].[User] ([UserID], [Email], [FirstName], [LastName], [LastLogin], [AvatarURL], [Salt], [PasswordHash]) VALUES (5, N't', N'T', N't', NULL, NULL, N'1234', N't')
+GO
 SET IDENTITY_INSERT [dbo].[User] OFF
 GO
-

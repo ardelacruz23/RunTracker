@@ -12,11 +12,16 @@ html {
 }
 body {
 }
+/* ---------------------------------------------------------------------------- */
 
 
 
+.addRun-distance { /* For the distance number input in the AddRun page form */
+    width: 15%;
+}
 
-.addRunForm {
+.addLocationForm { /* For the location form on AddRun page */
+    display: none;
     border-radius: 8px;
     background-color: #E5E7E9;
     width: 60%;
@@ -24,60 +29,123 @@ body {
     margin-right: auto;
 }
 
-.addRunLabel {
+.addRunForm { /* For the form on AddRun page */
+    border-radius: 8px;
+    background-color: #E5E7E9;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addRun-formBtn { /* For the buttons in the AddRun page form */
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.addRunLabel { /* For the labels in the AddRun page form */
     width: 25%;
     margin-left: 5%;
 }
 
-.addRunRow {
+.addRun-radioBtns { /* For the radio buttons in the AddRun page*/
+    display: inline-block;
+    width: 5%;
+    margin-right: 0px;
+}
+
+.addRunRow { /* For the rows in the AddRun page form */
     font-family: 'Liberation Mono', sans-serif;
     margin: auto;
     width: 100%;
 }
 
-.bordered {
+.addRun-startEnd { /* For the startTime & endTime time input boxes in the AddRun page*/
+    width: 50%;
+    font-size: 18px;
+}
+
+.createAccount-bordered { 
     border-radius: 8px;
-    width: 60%;
     border: none;
     background-color: #E5E7E9;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    width: 60%;
+    border: none;
+    background-color: #E5E7E9;
+    padding-left: 45px;
+    padding-top: 20px;
 }
 
-.btn-create {
+/* .btn-create {
     font-size: 25px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     border-radius: 8px;
     border: none;
+    padding: 10px;
     align-content: center;
     background-color: #7A96B4;
     color: white;
-}
+} */
 
-.createAccount, .misc {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 0px;
-    font-family: 'Raleway', sans-serif;
-}
-
-.createForm input[type="text"] {
-    box-sizing: border-box;
-    margin-right: auto;
+.createAccountBtn {
     width: 50%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
     border-radius: 8px;
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.create-account-header {
+    font-size: 36px;
+    color: white;
+}
+
+/* from Create Account */
+.misc-header {
+    color: #E8E8E8;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.create-account-header, .misc-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.createForm-input {
+    display: inline;
+    width: 60%;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
     background-color: #F4F6F6;
     border-color: #F2F4F4;
-    /*margin-bottom: 10px;*/
 }
 
-.dayViewBtn {
-    /* width: 150px; */
+.createForm-label {
+    font-size: 20px;
+    text-align: right;
+    width: 20%;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    display: inline;
+}
+
+.dayViewBtn { /* For the AddRun & DeleteRun buttons in the DayView page */
     width: 28%;
     color: white;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -88,7 +156,11 @@ body {
     border-radius: 15px;
 }
 
-.dayViewForm {
+.dayViewBtn-row { /* For the row spacing of the AddRun & DeleteRun buttons in the DayView page */
+    display: block;
+}
+
+.dayViewForm { /* ????????????????????????????????? */
     border-radius: 8px;
     background-color: #E5E7E9;
     width: 60%;
@@ -96,36 +168,71 @@ body {
     margin-right: auto;
 }
 
-#displayDate {
+.dayViewLocation-row { /* For the rows of the Stats display box in the DayView page */
+    display: block;
+    padding-top: 3%;
+    font-family: 'Liberation Mono', sans-serif;
+}
+
+.dayViewLocation-label {
+    display: inline-block;
+    width: 15%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+#displayDate { /* For the textbox to display RunDate in the DayView page */
     margin: auto;
     font-size: 24px;
     color: black;
     margin-top: 20px;
     text-align: center;
-    font-family: 'Liberation Mono', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-.displayRunName {
+.dayView-runInfo-divBox { /* For the div box section in the DayView page that displays the run stats */
+    height: 300px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: 10%;
+    background-color: white;
+}
+
+.dayViewRunName { /* For the textbox to display RunName in the DayView page */
     margin: auto;
-/*    width: 320px;  */
+    /*    width: 320px;  */
     width: 60%;
     font-size: 24px;
     color: black;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dayViewStats-icon { /* For the icons of the Stats display box in the DayView page */
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+.dayViewStats-row { /* For the rows of the Stats display box in the DayView page */
+    display: block;
+    padding-top: 3%;
     font-family: 'Liberation Mono', sans-serif;
 }
 
-.displayStats {
+.dayViewStats-text { /* For the textboxes of the Stats display box in the DayView page */
     height: 60px;
     width: 60%;
     margin-left: 3%;
     font-size: 24px;
     color: black;
     font-weight: bold;
+    display: inline-block
 }
 
-.distance {
-    width: 15%;
+.dayViewTab {
+    background-color: lightgrey;
 }
 
 .float-container {
@@ -138,44 +245,30 @@ body {
     padding: 20px;
 }
 
-.formBtn {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-}
-
 .homePage {
     color: white;
     font-size: 100px;
     font-weight: bold;
-    font-family: 'Verdana';
+    font-family: 'Poppins';
 }
 
 .misc {
     margin-bottom: 10px;
     color: #5D6D7E;
+    font-weight: bold;
 }
 
-.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
-    font-size: 20px;
-    text-align: left;
-    margin-left: auto;
-    width: 150px;
-    font-family: 'Raleway', sans-serif;
+/*.nameLabel, .emailLabel, .passwordLabel, .rePasswordLabel {
+    font-size: 25px;
+    text-align: right;
+    width: 100px;
+    font-family: 'Poppins', sans-serif;
 }
+*/
 
-.radioBtns {
-    display: inline-block;
-    width: 5%;
-    margin-right: 0px;
-}
+.photoURL {
+    padding: 8px;
 
-.radioLabels {
-    font-size: 14px;
-    padding-left: 0px;
-    margin-right: 0px;
-    width: 15%;
 }
 
 .row {
@@ -184,35 +277,18 @@ body {
     align-content: center;
 }
 
-#runName, #locationName {
+#runName, #locationName { /* For the RunName textbox in the AddRun page & LocationName textbox in the AddLocation page*/
     margin: auto;
     margin-top: 20px;
     width: 80%;
     text-align: center;
-    font-family: 'Liberation Mono', sans-serif;
-}
-
-.runStats {
-    height: 300px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: 10%;
-    background-color: white;
-}
-
-#startTime, #endTime {
-    width: 320px;
-}
-
-.startEndTime {
-    width: 50%;
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .welcome-text1 {
     color: #1C2833;
     font-weight: bold;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 50px;
     text-align: center;
     margin-top: 30px;
@@ -221,14 +297,14 @@ body {
 .welcome-text2 {
     color: black;
     font-size: 75px;
-    font-family: 'Monoton', cursive;
+    font-family: 'Poppins', cursive;
     text-align: center;
 }
 
 /* calendar styling */
 td {
-    width: 10rem;
-    height: 7rem;
+    width: 7rem;
+    height: 5rem;
     overflow: hidden;
     word-wrap: break-word;
     text-align: left;
@@ -251,8 +327,12 @@ td {
     margin-top: 20px;
 }
 
+.left-btn, .right-btn {
+    margin: 5px;
+}
+
 .left-btn {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .days-of-week {
@@ -265,6 +345,16 @@ td {
     text-align: center;
 }
 
+.month-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.span {
+    margin-left: 0;
+}
+
 .calendar {
     margin: 0 auto;
 }
@@ -272,9 +362,7 @@ td {
 .month-year {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    display: flex;
     font-size: 35px;
     margin-bottom: 10px;
 }
 /* end of calendar styling */
-

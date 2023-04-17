@@ -6,6 +6,7 @@
     [StartTime]    TIME (0)       NOT NULL,
     [EndTime]      TIME (0)       NOT NULL,
     [Distance]     DECIMAL (3, 1) NOT NULL,
+    [Measurement]  VARCHAR (50)   NULL,
     [Duration]     TIME (0)       NULL,
     [Pace]         TIME (0)       NULL,
     [PhotoURL]     VARCHAR (150)  NULL,
@@ -15,6 +16,8 @@
     [Country]      VARCHAR (50)   NULL,
     CONSTRAINT [PK_Run] PRIMARY KEY CLUSTERED ([RunID] ASC)
 );
+
+
 
 
 
