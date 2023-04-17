@@ -20,6 +20,15 @@ body {
     width: 15%;
 }
 
+.addLocationForm { /* For the location form on AddRun page */
+    display: none;
+    border-radius: 8px;
+    background-color: #E5E7E9;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .addRunForm { /* For the form on AddRun page */
     border-radius: 8px;
     background-color: #E5E7E9;
@@ -159,6 +168,19 @@ body {
     margin-right: auto;
 }
 
+.dayViewLocation-row { /* For the rows of the Stats display box in the DayView page */
+    display: block;
+    padding-top: 3%;
+    font-family: 'Liberation Mono', sans-serif;
+}
+
+.dayViewLocation-label {
+    display: inline-block;
+    width: 15%;
+    height: 20%;
+    margin-left: 5%;
+}
+
 #displayDate { /* For the textbox to display RunDate in the DayView page */
     margin: auto;
     font-size: 24px;
@@ -196,6 +218,7 @@ body {
 .dayViewStats-row { /* For the rows of the Stats display box in the DayView page */
     display: block;
     padding-top: 3%;
+    font-family: 'Liberation Mono', sans-serif;
 }
 
 .dayViewStats-text { /* For the textboxes of the Stats display box in the DayView page */
@@ -206,6 +229,10 @@ body {
     color: black;
     font-weight: bold;
     display: inline-block
+}
+
+.dayViewTab {
+    background-color: lightgrey;
 }
 
 .float-container {

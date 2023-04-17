@@ -19,6 +19,8 @@ INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTi
 GO
 INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (2012, 1, N'TestPace', N'2023-04-10', CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(3.9 AS Decimal(3, 1)), N'Measurement', CAST(N'01:00:00' AS Time), CAST(N'00:15:23' AS Time), N'N/A', N'N/A', N'N/A', N'N/A', N'N/A')
 GO
+INSERT [dbo].[Run] ([RunID], [UserID], [RunName], [RunDate], [StartTime], [EndTime], [Distance], [Measurement], [Duration], [Pace], [PhotoURL], [LocationName], [City], [State], [Country]) VALUES (4009, 1, N'TestLocation', N'2023-04-16', CAST(N'08:00:00' AS Time), CAST(N'09:00:00' AS Time), CAST(1.2 AS Decimal(3, 1)), N'Measurement', CAST(N'01:00:00' AS Time), CAST(N'00:50:00' AS Time), N'RunPhoto', N'RunLocation', N'RunCity', N'RunState', N'RunCountry')
+GO
 SET IDENTITY_INSERT [dbo].[Run] OFF
 GO
 SET IDENTITY_INSERT [dbo].[User] ON 

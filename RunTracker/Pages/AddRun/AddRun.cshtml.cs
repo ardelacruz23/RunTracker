@@ -15,11 +15,12 @@ namespace RunTracker.Pages.Shared
         [BindProperty]
         public Models.Run NewRun { get; set; } = new Models.Run();
         [BindProperty]
-        public string selection { get; set; }
-        public string[] Measurements = new string[]{ "Miles", "Kilometers" };
+        public string? Measurement { get; set; } 
+        public List<String> Measurements = new List<String>();        
         public void OnGet()
         {
-            
+            Measurements.Add("Miles");
+            Measurements.Add("Kilometers");
         }
 
         public IActionResult OnPost()
@@ -37,6 +38,7 @@ namespace RunTracker.Pages.Shared
                  * 6. Close the connection
                  *
                  */
+
 
                 if (NewRun.PhotoURL == null)
                 {
@@ -57,9 +59,7 @@ namespace RunTracker.Pages.Shared
                 if (NewRun.Country == null) 
                 {
                     NewRun.Country = "N/A";
-                }
-
-                
+                }                
                 
 
                 // Use the StartTime, EndTime and Distance to calculate the pace in mins per mile
@@ -73,7 +73,7 @@ namespace RunTracker.Pages.Shared
                 calcPace = (calcTime / NewRun.Distance);
                 TimeSpan paceSpan= TimeSpan.FromMinutes((double)calcPace);                
                 string paceString = paceSpan.ToString();
-                
+
 
                 using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
                 {
@@ -89,7 +89,7 @@ namespace RunTracker.Pages.Shared
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
-                    cmd.Parameters.AddWithValue("@measurement", NewRun.Measurement);
+                    cmd.Parameters.AddWithValue("@measurement", "Measurement");
                     cmd.Parameters.AddWithValue("@duration", NewRun.Duration);
                     cmd.Parameters.AddWithValue("@pace", paceString);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
@@ -117,9 +117,7 @@ namespace RunTracker.Pages.Shared
 
         }// onPost()
 
-
     }//CLASS AddRunModel
 
-
-}
+}// namespace {} 
 
