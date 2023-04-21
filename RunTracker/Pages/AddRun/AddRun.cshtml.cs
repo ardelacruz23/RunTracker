@@ -89,7 +89,7 @@ namespace RunTracker.Pages.Shared
                     cmd.Parameters.AddWithValue("@startTime", NewRun.StartTime);
                     cmd.Parameters.AddWithValue("@endTime", NewRun.EndTime);
                     cmd.Parameters.AddWithValue("@distance", NewRun.Distance);
-                    cmd.Parameters.AddWithValue("@measurement", "Measurement");
+                    cmd.Parameters.AddWithValue("@measurement", Measurement);
                     cmd.Parameters.AddWithValue("@duration", NewRun.Duration);
                     cmd.Parameters.AddWithValue("@pace", paceString);
                     cmd.Parameters.AddWithValue("@photoURL", NewRun.PhotoURL);
