@@ -9,23 +9,22 @@ namespace RunTracker.Pages.DayView
     public class DayViewModel : PageModel
     {
         public List<Models.Run> RunList = new List<Models.Run>();
-        public DateOnly displayDate = new DateOnly();
-        public void OnGet(int userID, string runDate)
+        public string displayDate;
+        public void OnGet(string rundate)
         {
-
+            displayDate = rundate;
             using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
             {                
                 string sql = "SELECT * FROM Run WHERE UserID = @userID AND RunDate = @runDate";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@userID", "1");
-                cmd.Parameters.AddWithValue("@runDate", "2023-04-10");
+                cmd.Parameters.AddWithValue("@runDate", rundate);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows) 
                 {
                     while (reader.Read()) 
-                    {
-                        displayDate = DateOnly.Parse(reader["RunDate"].ToString());
+                    {                        
                         Models.Run run = new Models.Run();
                         run.RunID = int.Parse(reader["RunID"].ToString());
                         run.RunName = reader["RunName"].ToString();

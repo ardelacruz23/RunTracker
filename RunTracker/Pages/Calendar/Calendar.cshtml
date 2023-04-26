@@ -3,74 +3,70 @@
 @{
     Layout = "_Layout-Calendar";
     ViewData["Title"] = "Calendar";
-}
+    if (Model.month == 0)
+    {
+        Model.month = 12;
+        Model.year = Model.year - 1;
+        CalendarModel.dt = new DateOnly(Model.year, Model.month, 1);
+        CalendarModel.nav = 0;
+    }
+    if (Model.month == 13)
+    {
+        Model.month = 1;
+        Model.year = Model.year + 1;
+        CalendarModel.dt = new DateOnly(Model.year, Model.month, 1);
+        CalendarModel.nav = 0;
 
-<div class="calendar-container">
-    <div class="month-year">
-        <div class="month-container">
-            <span>April 2023</span>
-            <button type="submit" class="btn btn-secondary left-btn">&larr;</button>
-            <button type="submit" class="btn btn-secondary right-btn">&rarr;</button>
+    }
+
+    string[] weekdays = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+    DateOnly firstDayOfMonth = new DateOnly(Model.year, Model.month, 1);
+    int daysInMonth = DateTime.DaysInMonth(Model.year, Model.month);
+    string dateString = firstDayOfMonth.ToLongDateString();
+    int paddingDays = Array.IndexOf(weekdays, dateString.Split(',')[0]);
+}
+<div id="calContainer">
+
+    <div id="container">
+        <div id="header">
+            <div id="monthDisplay">@firstDayOfMonth.ToString("MMMM") @Model.year.ToString()</div>
+            <div>
+            <form method="post">
+                <button id="previousButton" type="submit" asp-page-handler="previous" >Previous</></button>
+                <button id="nextButton" type="submit" asp-page-handler="next">Next</button>
+            </form>
+             </div>
+        </div>
+
+        <div id="weekdays">
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+        </div>
+
+        <div id="calendar">
+            @for (int i = 0; i < paddingDays + daysInMonth; i++)
+            {
+                if (i >= paddingDays)
+                {
+                    int day = i - paddingDays+1;
+                    string monthStr = "0" + firstDayOfMonth.Month.ToString();
+                    string monthSub = monthStr.Substring(monthStr.Length - 2);
+                    string dayString = Model.year + "-" + monthSub + "-" + day;
+                    <div><a class="day" style="text-decoration:none" asp-route-rundate="@dayString" asp-page="/DayView/DayView">@day</a></div>
+
+
+                }
+                else
+                {
+                    <div class="day padding"></div>
+                }
+            }
         </div>
     </div>
 
-    <table class="days-of-week">
-        <tr>
-            <td>Sunday</td>
-            <td>Monday</td>
-            <td>Tuesday</td>
-            <td>Wednesday</td>
-            <td>Thursday</td>
-            <td>Friday</td>
-            <td>Saturday</td>
-        </tr>
-    </table>
-
-    <table class="calendar">
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-        </tr>
-        <tr>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-        </tr>
-        <tr>
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
 </div>
