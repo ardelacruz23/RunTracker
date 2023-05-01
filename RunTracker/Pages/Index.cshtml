@@ -15,10 +15,14 @@
 	<div class="centered">
 		<h1>Login</h1>
 		<form>
-			<label for="email">Email</label>
-			<input type="email" id="email" name="email">
-			<label for="password">Password</label><br>
-			<input type="password" id="password" name="password">
+			<label asp-for="LoginInfo.Email">Email</label>
+			<input type="email" id="email" name="email" asp-for="LoginInfo.Email">
+			<span class="text-danger" asp-validation-for="LoginInfo.Email"></span>
+
+			<label asp-for="LoginInfo.Password">Password</label><br>
+			<input type="password" id="password" name="password" asp-for="LoginInfo.Password">
+			<span class="text-danger" asp-validation-for="LoginInfo.Password"></span>
+
 			<input type="submit" value="Login"><br>
 			<a href="/CreateAccount/CreateAccount"><strong><u>Create an Account</u></strong></a>
 		</form>
