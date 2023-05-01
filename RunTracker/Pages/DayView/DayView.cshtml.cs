@@ -8,24 +8,26 @@ namespace RunTracker.Pages.DayView
 {
     public class DayViewModel : PageModel
     {
+        static public int index = 0;
         public List<Models.Run> RunList = new List<Models.Run>();
-        public DateOnly displayDate = new DateOnly();
-        public void OnGet(int userID, string runDate)
+        public string displayDate;
+        public void OnGet(string rundate, int runIndex)
         {
+            index = runIndex;
 
+            displayDate = rundate;
             using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
-            {                
+            {                           
                 string sql = "SELECT * FROM Run WHERE UserID = @userID AND RunDate = @runDate";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@userID", "1");
-                cmd.Parameters.AddWithValue("@runDate", "2023-04-10");
+                cmd.Parameters.AddWithValue("@runDate", rundate);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows) 
                 {
                     while (reader.Read()) 
-                    {
-                        displayDate = DateOnly.Parse(reader["RunDate"].ToString());
+                    {                        
                         Models.Run run = new Models.Run();
                         run.RunID = int.Parse(reader["RunID"].ToString());
                         run.RunName = reader["RunName"].ToString();
@@ -47,20 +49,33 @@ namespace RunTracker.Pages.DayView
 
         }//OnGet()
 
-        public IActionResult OnPost(int id)
+        //public IActionResult OnPost(int id)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
+        //    {
+        //        string sql = "DELETE FROM Run WHERE RunID = @runID";
+        //        SqlCommand cmd = new SqlCommand(sql, conn);
+        //        cmd.Parameters.AddWithValue("@runID", id);
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+
+        //        return RedirectToPage("/DayView/DayView");
+        //    }
+        //}
+
+        public void OnPost(string runDate, int runId)
         {
             using (SqlConnection conn = new SqlConnection(DBHelper.GetConnectionString()))
             {
-                string sql = "DELETE FROM Run WHERE RunID = @runID";
+                string sql = "DELETE FROM Run WHERE RunDate=@runDate AND RunID=@runId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@runID", id);
+                cmd.Parameters.AddWithValue("@runDate", runDate);
+                cmd.Parameters.AddWithValue("@runId", runId);
                 conn.Open();
                 cmd.ExecuteNonQuery();
-
-                return RedirectToPage("/DayView/DayView");
+                OnGet(runDate, 0);
             }
         }
-
-
     }
+
 }
