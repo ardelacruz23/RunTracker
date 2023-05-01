@@ -12,18 +12,16 @@
         <div style="width: 50%; margin-right: auto; margin-bottom: auto; margin-top: auto; padding-top: 50px" class="float-child">
             @foreach (var obj in Model.RunList)
             {
-                <input type="text" id="@Model.RunList.IndexOf(obj)" class="mb-3 col-lg-6 col-form-label-md dayViewRunName" style="margin-left: 1px;" readonly placeholder="@obj.RunName"/>
+            <a type="text" asp-route-rundate="@Model.displayDate" asp-route-runindex="@Model.RunList.IndexOf(obj)" class="mb-3 col-lg-6 col-form-label-md dayViewRunName" style="margin-left: 1px;" asp-page="/DayView/DayView" asp-page-handler="RunClick">@obj.RunName</a>
             }
             <div class="dayViewBtn-row">
                 <a asp-page="/AddRun/AddRun" class="btn dayViewBtn" style="display:inline-block; background-color: #4CAF50;">Add Run</a>
-                @if(Model.RunList.Count != 0)
-                {
-                    <button type="submit" class="btn dayViewBtn" asp-route-id="@Model.RunList[0].RunID" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
-                }
-                else
-                {
-                    <button type="submit" class="btn dayViewBtn" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
-                }
+                    @if (Model.RunList.Count != 0)
+                    {
+                        <form method="post">
+                            <button type="submit" class="btn dayViewBtn" onclick="return confirm('Are you sure you want to delete the run?')" asp-route-rundate="@Model.displayDate" asp-route-runid="@Model.RunList[DayViewModel.index].RunID" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
+                        </form>
+                    }
             </div>
         </div>
 
@@ -45,21 +43,21 @@
                             <img src="~/Images/Duration.png" class="dayViewStats-icon" />
                             @if (Model.RunList.Count != 0)
                             {                                
-                               <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Duration    hh:mm:ss" />
+                               <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].Duration    hh:mm:ss" />
                             }
                         </div>
                         <div class="dayViewStats-row">
                             <img src="~/Images/Distance.png" class="dayViewStats-icon" />
                             @if (Model.RunList.Count != 0)
                             {
-                                <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Distance" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].Distance" />
                             }
                         </div>
                         <div class="dayViewStats-row">
                             <img src="~/Images/Pace.png" class="dayViewStats-icon" />
                             @if (Model.RunList.Count != 0)
                             {
-                                <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Pace mins/mi" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].Pace mins/mi" />
                             }
                         </div>
                     </div>
@@ -73,21 +71,21 @@
                         <label class="dayViewLocation-label">Name</label>
                         @if (Model.RunList.Count != 0)
                         {
-                            <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].LocationName" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].LocationName" />
                         }
                     </div>
                     <div class="dayViewLocation-row">
                         <label class="dayViewLocation-label">City</label>
                         @if (Model.RunList.Count != 0)
                         {
-                            <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].City" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].City" />
                         }
                 </div>
                     <div class="dayViewLocation-row">
                         <label class="dayViewLocation-label">State</label>
                         @if (Model.RunList.Count != 0)
                         {
-                            <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].State" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].State" />
                         }
 
                     </div>
@@ -95,7 +93,7 @@
                         <label class="dayViewLocation-label">Country</label>
                         @if (Model.RunList.Count != 0)
                         {
-                            <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[0].Country" />
+                        <input type="text" class="dayViewStats-text" readonly placeholder="@Model.RunList[DayViewModel.index].Country" />
                         }
                     </div>
             </div>
