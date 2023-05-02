@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -6,6 +7,7 @@ using RunTracker.Models;
 
 namespace RunTracker.Pages
 {
+    [Authorize]
     public class CalendarModel : PageModel
     {
         static public int nav;
