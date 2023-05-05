@@ -8,13 +8,6 @@ namespace RunTracker.Pages
 {
 	public class IndexModel : PageModel
 	{
-		private readonly ILogger<IndexModel> _logger;
-
-		public IndexModel(ILogger<IndexModel> logger)
-		{
-			_logger = logger;
-		}
-
 		[BindProperty]
 		public Credential LoginInfo { get; set; }
 
@@ -22,19 +15,20 @@ namespace RunTracker.Pages
 		{
 		}
 
-		public async Task<IActionResult> OnPost()
+		public async Task<IActionResult> OnPostAsync()
 		{
 			if (ModelState.IsValid)
 			{
 				// Verify user credentials
 				if (LoginInfo.Email == "admin@mysite.com" && LoginInfo.Password == "CSCI3321!")
 				{
-					// Create security context
+					// Create security context - Method 1
 					// var claim1 = new Claim(ClaimTypes.Email, LoginInfo.Email);
 					// var claim2 = new Claim(ClaimTypes.Name, "Angelica");
 					// var claim3 = new Claim("Username", "Admin");
 					// var calims = new List<Claim> { claim1, claim2 };
 
+					// Create security context - Method 2
 					var claims = new List<Claim>
 					{
 						new Claim(ClaimTypes.Email, LoginInfo.Email),
@@ -46,7 +40,7 @@ namespace RunTracker.Pages
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
 					await HttpContext.SignInAsync("RunTrackerCookie", principal);
-					return RedirectToPage("/Index");
+					return RedirectToPage("/Calendar/Calendar");
 				}
 				return Page();
 			}
@@ -56,9 +50,9 @@ namespace RunTracker.Pages
 
 	public class Credential
 	{
-		[Required]
+		[Required(ErrorMessage ="Email is not valid")]
 		public string Email { get; set; }
-		[Required]
+		[Required(ErrorMessage = "Password is not valid")]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 	}

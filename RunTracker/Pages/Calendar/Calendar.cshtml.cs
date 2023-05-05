@@ -10,6 +10,13 @@ namespace RunTracker.Pages
     [Authorize]
     public class CalendarModel : PageModel
     {
+        private readonly ILogger<CalendarModel> _logger;
+
+        public CalendarModel(ILogger<CalendarModel> logger)
+        {
+            _logger = logger;
+        }
+
         static public int nav;
         public int year;
         static public DateOnly dt = DateOnly.FromDateTime(DateTime.Now);

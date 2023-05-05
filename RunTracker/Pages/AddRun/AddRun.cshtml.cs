@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,8 +11,10 @@ using System.Reflection.Metadata;
 
 namespace RunTracker.Pages.Shared
 {
+    [Authorize]
     public class AddRunModel : PageModel
     {
+
         [BindProperty]
         public Models.Run NewRun { get; set; } = new Models.Run();
         [BindProperty]

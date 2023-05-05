@@ -154,6 +154,7 @@ body {
     margin-right: 10px;
     margin-bottom: 20px;
     border-radius: 15px;
+    display: inline;
 }
 
 .dayViewBtn-row { /* For the row spacing of the AddRun & DeleteRun buttons in the DayView page */
@@ -198,14 +199,20 @@ body {
     background-color: white;
 }
 
+.dayView-runInfo-runName { /* For the run name section in the DayView page that displays the run stats */
+    margin-bottom: 5px;
+}
+
 .dayViewRunName { /* For the textbox to display RunName in the DayView page */
     margin: auto;
     /*    width: 320px;  */
-    width: 60%;
+    width: 30%;
     font-size: 24px;
     color: black;
     text-align: center;
     font-family: 'Verdana', sans-serif;
+    text-decoration: none;
+    background-color: white
 }
 
 .dayViewStats-icon { /* For the icons of the Stats display box in the DayView page */
@@ -219,6 +226,7 @@ body {
     display: block;
     padding-top: 3%;
     font-family: 'Liberation Mono', sans-serif;
+    text-decoration: none;
 }
 
 .dayViewStats-text { /* For the textboxes of the Stats display box in the DayView page */
@@ -228,7 +236,22 @@ body {
     font-size: 24px;
     color: black;
     font-weight: bold;
-    display: inline-block
+    display: inline-block;
+    text-decoration: none;
+    background-color: white;
+}
+
+.dayViewStats-text-runName { /* For the textboxes of the Stats display box in the DayView page */
+    height: 60px;
+    width: 60%;
+    margin-left: 3%;
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    background-color: white;
+    align-content: center;
 }
 
 .dayViewTab {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -6,11 +7,12 @@ using RunTracker.Models;
 
 namespace RunTracker.Pages.DayView
 {
+    [Authorize]
     public class DayViewModel : PageModel
     {
         static public int index = 0;
         public List<Models.Run> RunList = new List<Models.Run>();
-        public string displayDate;
+        static public string displayDate;
         public void OnGet(string rundate, int runIndex)
         {
             index = runIndex;

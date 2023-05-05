@@ -4,7 +4,7 @@
 }
 
     <div class="row mb-3 addRunRow">
-        <input type="text" class="col-lg-6 col-form-label-lg" id="displayDate" readonly placeholder="@Model.displayDate"/>
+        <input type="text" class="col-lg-6 col-form-label-lg" id="displayDate" readonly placeholder="@DayViewModel.displayDate"/>
     </div>
 
     <div class="float-container">
@@ -12,14 +12,16 @@
         <div style="width: 50%; margin-right: auto; margin-bottom: auto; margin-top: auto; padding-top: 50px" class="float-child">
             @foreach (var obj in Model.RunList)
             {
-            <a type="text" asp-route-rundate="@Model.displayDate" asp-route-runindex="@Model.RunList.IndexOf(obj)" class="mb-3 col-lg-6 col-form-label-md dayViewRunName" style="margin-left: 1px;" asp-page="/DayView/DayView" asp-page-handler="RunClick">@obj.RunName</a>
+                <div class="dayView-runInfo-runName">
+                    <a type="text" asp-route-rundate="@DayViewModel.displayDate" asp-route-runindex="@Model.RunList.IndexOf(obj)" asp-page="/DayView/DayView"><input type="text" class="dayViewStats-text-runName" onclick="" placeholder="@obj.RunName" /> </a>
+                </div>
             }
             <div class="dayViewBtn-row">
                 <a asp-page="/AddRun/AddRun" class="btn dayViewBtn" style="display:inline-block; background-color: #4CAF50;">Add Run</a>
                     @if (Model.RunList.Count != 0)
                     {
                         <form method="post">
-                            <button type="submit" class="btn dayViewBtn" onclick="return confirm('Are you sure you want to delete the run?')" asp-route-rundate="@Model.displayDate" asp-route-runid="@Model.RunList[DayViewModel.index].RunID" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
+                            <button type="submit" class="btn dayViewBtn" onclick="return confirm('Are you sure you want to delete the run?')" asp-route-rundate="@DayViewModel.displayDate" asp-route-runid="@Model.RunList[DayViewModel.index].RunID" style="display:inline-block; background-color: crimson; margin-left: 5px;">Delete Run</button>
                         </form>
                     }
             </div>
